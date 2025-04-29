@@ -71,8 +71,9 @@
 
 .modal-form form {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 24px;
 }
 
 .sim-btn button, .nao-btn button {
