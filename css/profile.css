@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f5;
+}
+
+.container-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 70px;
+    background-color: #0e2442;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.user p {
+    font-size: 14px;
+    font-style: italic;
+    margin: 0;
+}
+
+.menu {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    background-color: #0e2442;
+    padding: 20px 0;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav li:hover {
+    background-color: #1d3557;
+    cursor: pointer;
+}
+
+.submenu summary {
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.submenu ul {
+    padding-left: 30px;
+    margin-top: 5px;
+}
+
+.submenu ul li a {
+    font-size: 14px;
+    color: #dcdcdc;
+    text-decoration: none;
+}
+
+.logout {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout button {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+}
+
+.logout:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Main content */
+.main {
+    padding: 100px;
+    margin-top: 5px;
+    margin-left: 250px;
+}
+
+.card {
+    margin-left: 40px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0a214c;
+    color: white;
+    height: 60px;
+    border-radius: 6px 6px 0 0;
+    padding: 0 15px;
+    font-size: 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+input[type="text"], input[type="email"] {
+    padding: 8px;
+    border: 1px solid #0a214c;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.btn {
+    background-color: #0a214c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background-color: #142747;
+}
+
+.btn-yellow {
+    background-color: #f5c037;
+    color: black;
+    font-size: 14px;
+}
+
+.btn-yellow:hover {
+    background-color: #e0b030;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.actions button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.btn-edit {
+    background-color: #1a3769;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #16305c;
+}
+
+.btn-deactivate {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-deactivate:hover {
+    background-color: #c0392b;
+}
