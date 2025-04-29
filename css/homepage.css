@@ -113,10 +113,12 @@ body {
     gap: 10px;
 }
 
-.logout a {
+.logout button {
     color: white;
+    background-color: #14274700;
     text-decoration: none;
     font-size: 16px;
+    border: none;
 }
 .logout:hover {
     font-weight: bold;
@@ -151,4 +153,88 @@ body {
     padding: 20px;
     font-size: 16px;
     color: #333;
+}
+
+.modal-overlay:not(.hidden) {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* fundo escurecido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-subject {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: #142747;
+}
+
+.modal-title span {
+    font-weight: 700;
+}
+
+.modal-form {
+    width: 100%;
+}
+
+.modal-form form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sim-btn button, .nao-btn button {
+    border: none;
+    color: #F8F8F8;
+    text-align: center;
+    cursor: pointer;
+}
+
+.sim-btn button {
+    background-color: #142747;
+    border-radius: 8px;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.nao-btn button {
+    background-color: #93A2B7;
+    border-radius: 8px;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
 }
