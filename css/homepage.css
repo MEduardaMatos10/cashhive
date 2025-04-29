@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f5;
+}
+
+.container-header {
+    position: fixed; /* adicionado */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* para ficar acima do menu */
+    height: 70px;
+    background-color: #0e2442;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    width: 100%;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.user p {
+    font-size: 14px;
+    font-style: italic;
+    margin: 0;
+}
+
+.menu {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    background-color: #0e2442;
+    padding: 20px 0;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav li:hover {
+    background-color: #1d3557;
+    cursor: pointer;
+}
+
+.submenu summary {
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.submenu[open] summary::after {
+    
+    margin-left: auto;
+    color: white;
+}
+.submenu[open] a:hover {
+    text-decoration: underline;
+    
+}
+
+.submenu summary::after {
+    
+    margin-left: auto;
+    color: white;
+}
+
+.submenu ul {
+    padding-left: 30px;
+    margin-top: 5px;
+}
+
+.submenu ul li {
+    padding: 5px 0;
+}
+
+.submenu ul li a {
+    font-size: 14px;
+    color: #dcdcdc;
+    text-decoration: none;
+}
+
+.logout {
+    position: fixed; 
+    bottom: 0;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+.logout:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dashboard {
+    margin-left: 250px;
+    margin-top: 70px;
+    padding: 40px;
+    background-color: #f4f6f5;
+    min-height: calc(100vh - 70px);
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #1d3557;
+    color: white;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    padding: 20px;
+    font-size: 16px;
+    color: #333;
+}
