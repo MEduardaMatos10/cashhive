@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>CashHive System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/css/modalsair.css">
+</head>
+<body>
+
+    <header class="container-header">
+        <div class="logo">
+            <img src="/img/logo.png" alt="Logo CashHive">
+        </div>
+        <div class="user">
+            <p>Usuário Fulano de Tal (00.623.904/0001-73)</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="menu">
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <img src="/img/homeicon.svg" alt="Início">
+                        <a href="#">Página inicial</a>
+                    </li>
+                    <li>
+                        <img src="/img/profileicon.svg" alt="Perfil">
+                        <a href="#">Perfil</a>
+                    </li>
+                    <li>
+                        <details class="submenu">
+                            <summary>
+                                <img src="/img/financeicon.svg" alt="Financeiro">
+                                Financeiro
+                            </summary>
+                            <ul>
+                                <li><a href="#">Receitas</a></li>
+                                <li><a href="#">Cadastro de Receitas</a></li>
+                                <li><a href="#">Despesas</a></li>
+                                <li><a href="#">Cadastro de Despesas</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="logout">
+                        <img src="/img/logouticon.svg" alt="Sair">
+                        <button class="btn-sair-conta open-modal" data-modal="modal-1">Sair</button>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="perfil-header">
+            <div class="perfil-title">
+              <img src="/img/profilewhite.svg" alt="Ícone Perfil">
+              <h3>Editar meu perfil</h3>
+            </div>
+            <button class="add-user-btn">Alterar senha</button>
+          </div>
+  <main class="main">
+      <div class="form-grid">
+        <input type="text" placeholder="*Nome">
+        <input type="text" placeholder="Cidade">
+        <input type="text" placeholder="CPF">
+        <input type="text" placeholder="Estado">
+        <input type="text" placeholder="CEP">
+        <input type="text" placeholder="Telefone">
+        <input type="text" placeholder="Rua">
+        <input type="text" placeholder="DDD">
+        <input type="text" placeholder="Bairro">
+        <input type="email" placeholder="Email">
+      </div>
+      <button class="btn">Salvar</button>
+    </div>
+
+    <div class="header-card">
+        <div class="left-content">
+          <img src="../img/profileadiction.svg" alt="Ícone usuário" />
+          <span>Adicionar usuário</span>
+        </div>
+        <button class="add-user-btn">Adicionar novo usuário</button>
+      </div>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>02/03/2025</td>
+            <td>Brenda Evelyn da Silva Vieira</td>
+            <td>evelynbrenda@aluno.unifapce.edu.br</td>
+            <td class="actions">
+              <button class="btn-edit">Editar</button>
+              <button class="btn-deactivate">Desativar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>02/03/2025</td>
+            <td>Ramon Pietro Felizado Neymar Junior</td>
+            <td>ramonney@aluno.unifapce.edu.br</td>
+            <td class="actions">
+              <button class="btn-edit">Editar</button>
+              <button class="btn-deactivate">Desativar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <div class="modal-overlay hidden" id="modal-1">
+    <div class="modal-box">
+        <button class="modal-close close-modal" type="button">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-subject">
+            <div class="modal-header">
+                <p class="modal-title">Deseja mesmo <span>sair</span> da conta?</p>
+            </div>
+
+            <div class="modal-form">
+                <form action="#">
+                    <div class="sim-btn">
+                        <a href="/html/login.html"><button type="button">Sim</button></a>
+                    </div>
+                    <div class="nao-btn">
+                        <button type="button" class="close-modal">Não</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Abre o modal ao clicar no botão com data-modal
+    document.querySelectorAll(".open-modal").forEach(button => {
+        button.addEventListener("click", () => {
+            const modalId = button.getAttribute("data-modal");
+            document.getElementById(modalId).classList.remove("hidden");
+        });
+    });
+
+    // Fecha o modal ao clicar no botão de fechar
+    document.querySelectorAll(".close-modal").forEach(button => {
+        button.addEventListener("click", () => {
+            button.closest(".modal-overlay").classList.add("hidden");
+        });
+    });
+
+    // Fecha ao clicar fora da caixa
+    window.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal-overlay")) {
+            e.target.classList.add("hidden");
+        }
+    });
+</script>
+
+
+</body>
+</html>
