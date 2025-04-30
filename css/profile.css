@@ -82,7 +82,9 @@ body {
     color: #dcdcdc;
     text-decoration: none;
 }
-
+.submenu ul li a:hover {
+    text-decoration: underline;
+}
 .logout {
     position: fixed;
     bottom: 20px;
@@ -162,7 +164,7 @@ body {
 .card {
     background: white;
     padding: 35px;
-  width: 60%;
+    width: 60%;
     box-shadow: 0 6px 10px rgba(96, 122, 158, 0.6);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -170,31 +172,18 @@ body {
 }
 
 
-.left-content img {
-        width: 20px;
-        height: 20px;
-        display: block;
-        transform: translateY(-1px); /* Eleva levemente o ícone */
-      }
-
 
 .left-content {
     display: flex;
-  align-items: baseline; /* Alinha pela base do texto */
-  gap: 8px;
-    background-color: #061633;
-    padding: 10px 16px;
-    height: 100%;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-    font-weight: bold;
-    
-  }
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+   
+}
   
-  .left-content img {
-    width: 24px;
-    height: 24px;
-  }
+
 
 .form-grid {
     display: grid;
