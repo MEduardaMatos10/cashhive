@@ -21,6 +21,7 @@ body {
 
 .logo img {
     height: 50px;
+    margin-left: 20px;
 }
 
 .user p {
@@ -216,7 +217,7 @@ input[type="text"], input[type="email"] {
     background-color: #142747;
 }
 
-.add-user-btn {
+.add-user-btn, .btn-open-cadastro-usuario {
     background-color: #f5c037;
     color: black;
     font-size: 14px;
@@ -227,6 +228,7 @@ input[type="text"], input[type="email"] {
     cursor: pointer;
     transition: 0.5s;
 }
+
 .btn-yellow:hover {
     background-color: #e0b030;
 }

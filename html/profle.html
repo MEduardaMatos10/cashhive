@@ -10,7 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="/css/modalsair.css">
+  <link rel="stylesheet" href="../css/modalsair.css">
+  <link rel="stylesheet" href="../css/modalcadastro.css">
 </head>
 <body>
 
@@ -51,7 +52,7 @@
                     </li>
                     <li class="logout">
                         <img src="/img/logouticon.svg" alt="Sair">
-                        <button class="btn-sair-conta open-modal" data-modal="modal-1">Sair</button>
+                        <button class="btn-sair-conta open-modal" data-modal="modal-sair">Sair</button>
                     </li>
                 </ul>
             </nav>
@@ -84,7 +85,7 @@
           <img src="../img/profileadiction.svg" alt="Ícone usuário" />
           <span>Adicionar usuário</span>
         </div>
-        <button class="add-user-btn">Adicionar novo usuário</button>
+        <button class="btn-add-user open-modal" data-modal="modal-cadastro">Adicionar novo usuário</button>
       </div>
 
     <div class="card">
@@ -120,9 +121,9 @@
       </table>
     </div>
   </main>
-  <div class="modal-overlay hidden" id="modal-1">
+  <div class="modal-overlay hidden" id="modal-sair">
     <div class="modal-box">
-        <button class="modal-close close-modal" type="button">
+        <button class="modal-close close-modal-sair" type="button">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
@@ -137,15 +138,96 @@
                         <a href="/html/login.html"><button type="button">Sim</button></a>
                     </div>
                     <div class="nao-btn">
-                        <button type="button" class="close-modal">Não</button>
+                        <button type="button" class="close-modal-sair">Não</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<div class="modal-overlay hidden" id="modal-cadastro">
+    <div class="modal-box">
+        <button class="modal-close close-modal-cadastro" type="button">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-subject">
+            <div class="modal-header">
+                <p class="modal-title">Cadastre um novo usuário</p>
+            </div>
+
+            <div class="modal-form-new-user">
+                <form action="#">
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome do novo usuário" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="sobrenome">Sobrenome</label>
+                            <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome do novo usuário" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF do novo usuário" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Digite o e-mail do novo usuário" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="cargo">Cargo</label>
+                            <select id="cargo" name="cargo" required>
+                                <option value="">Selecione o cargo</option>
+                                <option value="admin">Administrador</option>
+                                <option value="gerente">Gerente</option>
+                                <option value="analista">Analista</option>
+                            </select>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="nivel">Nível de permissão</label>
+                            <select id="nivel" name="nivel" required>
+                                <option value="">Selecione o nível de permissão</option>
+                                <option value="1">Nível 1</option>
+                                <option value="2">Nível 2</option>
+                                <option value="2">Nível 3</option>
+                            </select>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="senha">Senha</label>
+                            <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="repetir_senha">Repetir senha</label>
+                            <input type="password" id="repetir_senha" name="repetir_senha" placeholder="Repita a senha criada" required>
+                        </div>
+
+                    </div>
+                
+                    <div class="criar-btn">
+                        <button type="submit">Criar Conta</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+        
+    </div>
+    
+</div>
+
+
 <script>
-    // Abre o modal ao clicar no botão com data-modal
+    // Abre o modal correto ao clicar no botão com data-modal
     document.querySelectorAll(".open-modal").forEach(button => {
         button.addEventListener("click", () => {
             const modalId = button.getAttribute("data-modal");
@@ -153,10 +235,17 @@
         });
     });
 
-    // Fecha o modal ao clicar no botão de fechar
-    document.querySelectorAll(".close-modal").forEach(button => {
+    // Fecha o modal de sair
+    document.querySelectorAll(".close-modal-sair").forEach(button => {
         button.addEventListener("click", () => {
-            button.closest(".modal-overlay").classList.add("hidden");
+            button.closest("#modal-sair").classList.add("hidden");
+        });
+    });
+
+    // Fecha o modal de cadastro
+    document.querySelectorAll(".close-modal-cadastro").forEach(button => {
+        button.addEventListener("click", () => {
+            button.closest("#modal-cadastro").classList.add("hidden");
         });
     });
 
@@ -165,6 +254,27 @@
         if (e.target.classList.contains("modal-overlay")) {
             e.target.classList.add("hidden");
         }
+    });
+</script>
+<script>
+    // Script para abrir Modal de adicionar novo usuário ao clicar no button de "adicionar novo usuário".
+    
+    const openModalBtn = document.querySelector(".open-modal");
+    const modal = document.getElementById("modal-cadastro");
+    const closeModalBtn = modal.querySelector(".close-modal-cadastro");
+
+    openModalBtn.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    });
+
+    window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.classList.add("hidden");
+    }
     });
 </script>
 
