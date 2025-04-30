@@ -224,8 +224,9 @@ input[type="text"], input[type="email"] {
     height: 30px;
     border-radius: 5px;
     border-style: none;
+    cursor: pointer;
+    transition: 0.5s;
 }
-
 .btn-yellow:hover {
     background-color: #e0b030;
 }
