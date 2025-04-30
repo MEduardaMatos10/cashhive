@@ -21,7 +21,8 @@ body {
 
 .logo img {
     height: 50px;
-    margin-left: 8px; /* Adiciona um espaço à esquerda da logo */
+    margin-left: 20px;
+
 }
 .user p {
     font-size: 14px;
@@ -216,7 +217,7 @@ input[type="text"], input[type="email"] {
     background-color: #142747;
 }
 
-.add-user-btn {
+.add-user-btn, .open-modal {
     background-color: #f5c037;
     color: black;
     font-size: 14px;
