@@ -1,14 +1,14 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Inter", sans-serif;
     background-color: #f4f6f5;
 }
 
 .container-header {
-    position: fixed; /* adicionado */
+    position: fixed; 
     top: 0;
     left: 0;
-    z-index: 1000; /* para ficar acima do menu */
+    z-index: 1000; 
     height: 70px;
     background-color: #0e2442;
     color: white;
