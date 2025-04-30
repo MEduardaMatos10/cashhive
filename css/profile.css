@@ -217,7 +217,7 @@ input[type="text"], input[type="email"] {
     background-color: #142747;
 }
 
-.add-user-btn, .btn-open-cadastro-usuario {
+.add-user-btn, .open-modal {
     background-color: #f5c037;
     color: black;
     font-size: 14px;
