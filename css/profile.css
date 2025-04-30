@@ -21,8 +21,8 @@ body {
 
 .logo img {
     height: 50px;
+    margin-left: 8px; /* Adiciona um espaço à esquerda da logo */
 }
-
 .user p {
     font-size: 14px;
     font-style: italic;
@@ -227,6 +227,11 @@ input[type="text"], input[type="email"] {
     cursor: pointer;
     transition: 0.5s;
 }
+.add-user-btn a{
+    text-decoration: none;
+    color: black;
+}
+
 .btn-yellow:hover {
     background-color: #e0b030;
 }
