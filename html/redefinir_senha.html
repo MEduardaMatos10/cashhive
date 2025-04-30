@@ -86,7 +86,7 @@
 
                 <div class="form-buttons">
                   <button type="submit" class="btn-salvar open-modal" data-modal="modal-1">Salvar</button>
-                  <button type="button" class="btn-voltar">Voltar</button>
+                  <a href=""><button type="button" class="btn-voltar">Voltar</button></a>
                 </div>
 
               </form>
@@ -110,14 +110,14 @@
 
             <div class="modal-subject">
                 <div class="modal-header">
-                    <p class="modal-title">Deseja mesmo <span>redefinir</span> sua senha?</p>
+                    <p class="modal-title">Deseja mesmo <span>sair</span> da sua conta?</p>
                 </div>
 
                 <div class="modal-form">
                     <form action="#">
                         
                         <div class="sim-btn">
-                            <button type="button">Sim</button>
+                            <a href=""></a><button type="button">Sim</button>
                         </div>
 
                         <div class="nao-btn">
@@ -133,7 +133,24 @@
         </div>
         
     </div>
-
+    <div id="meuModal2" class="modal2-overlay hidden">
+        <div class="modal2-box">
+            <button class="modal2-close close-modal2">&times;</button>
+            <p class="modal-title">Deseja mesmo <span>redefinir</span> sua senha?</p>
+            <div class="modal2-form">
+                <form>
+                    <div class="modal2-btn-sim">
+                        <a href="recoverpassword.html"><button type="button">Sim</button></a>
+                        
+                    </div>
+                    <div class="modal2-btn-nao">
+                        <button type="button">Não</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
 
     <script>
         // Script para abrir Modal de sair da conta ao clicar no button de "Sair".
@@ -155,7 +172,46 @@
             modal.classList.add("hidden");
         }
         });
+
     </script>
+    <script>
+
+        document.querySelectorAll(".open-modal2").forEach(button => {
+            button.addEventListener("click", () => {
+                const modalId = button.getAttribute("data-modal-2");
+                document.getElementById(modalId).classList.remove("hidden");
+            });
+        });
+      
+      
+        document.querySelectorAll(".close-modal2").forEach(button => {
+            button.addEventListener("click", () => {
+                button.closest(".modal2-overlay").classList.add("hidden");
+            });
+        });
+      
+      
+        window.addEventListener("click", (e) => {
+            if (e.target.classList.contains("modal2-overlay")) {
+                e.target.classList.add("hidden");
+            }
+        });
+      
+       
+        document.querySelectorAll(".modal2-btn-sim").forEach(button => {
+            button.addEventListener("click", () => {
+                console.log("Sim clicado");
+                button.closest(".modal2-overlay").classList.add("hidden");
+            });
+        });
+      
+        document.querySelectorAll(".modal2-btn-nao").forEach(button => {
+            button.addEventListener("click", () => {
+                console.log("Não clicado");
+                button.closest(".modal2-overlay").classList.add("hidden");
+            });
+        });
+      </script>
      
 </body>
 </html>
