@@ -14,6 +14,7 @@
      <!-- LINKS DO "X" PRA FECHAR O MODAL E DA FOLHA DE ESTILO DO MODAL -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <link rel="stylesheet" href="../css/modal_redefinir_senha.css">
+    <link rel="stylesheet" href="../css/modal_sair.css">
 
 </head>
 <body>
@@ -84,7 +85,7 @@
                 </div>
 
                 <div class="form-buttons">
-                  <button type="submit" class="btn-salvar open-modal" data-modal="modal-1">Salvar</button>
+                    <button class="open-modal2" data-modal-2="meuModal2">Salvar</button>
                   <a href="profle.html"><button type="button" class="btn-voltar">Voltar</button></a>
                 </div>
 
@@ -116,11 +117,11 @@
                     <form action="#">
                         
                         <div class="sim-btn">
-                            <a href=""></a><button type="button">Sim</button>
+                            <a href="login.html"><button type="button">Sim</button></a>
                         </div>
 
                         <div class="nao-btn">
-                            <button type="button">Não</button>
+                            <a href="redefinir_senha.html"><button type="button">Não</button></a>
                         </div>
 
                     </form>
@@ -152,27 +153,29 @@
     
 
     <script>
-        // Script para abrir Modal de sair da conta ao clicar no button de "Sair".
-        
-        const openModalBtn = document.querySelector(".open-modal");
-        const modal = document.getElementById("modal-1");
-        const closeModalBtn = modal.querySelector(".close-modal");
-
-        openModalBtn.addEventListener("click", () => {
-        modal.classList.remove("hidden");
+        // Abre o modal ao clicar no botão com data-modal
+        document.querySelectorAll(".open-modal").forEach(button => {
+            button.addEventListener("click", () => {
+                const modalId = button.getAttribute("data-modal");
+                document.getElementById(modalId).classList.remove("hidden");
+            });
         });
-
-        closeModalBtn.addEventListener("click", () => {
-        modal.classList.add("hidden");
+    
+        // Fecha o modal ao clicar no botão de fechar
+        document.querySelectorAll(".close-modal").forEach(button => {
+            button.addEventListener("click", () => {
+                button.closest(".modal-overlay").classList.add("hidden");
+            });
         });
-
+    
+        // Fecha ao clicar fora da caixa
         window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.classList.add("hidden");
-        }
+            if (e.target.classList.contains("modal-overlay")) {
+                e.target.classList.add("hidden");
+            }
         });
-
     </script>
+    
     <script>
 
         document.querySelectorAll(".open-modal2").forEach(button => {
