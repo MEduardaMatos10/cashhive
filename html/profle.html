@@ -135,14 +135,14 @@
             </div>
 
             <div class="modal-form">
-                <form action="#">
-                    <div class="sim-btn">
-                        <a href="/html/login.html"><button type="button">Sim</button></a>
-                    </div>
-                    <div class="nao-btn">
-                        <button type="button" class="close-modal close-modal-sair">Não</button>
-                    </div>
-                </form>
+              <form>
+                <div class="sim-btn">
+                  <button type="button" id="btn-sim">Sim</button>
+                </div>
+                <div class="nao-btn">
+                  <button type="button" id="btn-nao">Não</button>
+                </div>
+              </form>
             </div>
         </div>
     </div>
@@ -225,33 +225,34 @@
 
 <!-- JavaScript -->
 <script>
+  // Abre o modal ao clicar no botão com data-modal
   document.querySelectorAll(".open-modal").forEach(button => {
     button.addEventListener("click", () => {
       const modalId = button.getAttribute("data-modal");
       const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.remove("hidden");
-      }
+      if (modal) modal.classList.remove("hidden");
     });
   });
 
-  // Fecha o modal ao clicar em qualquer botão com a classe modal-close
+  // Fecha o modal ao clicar no botão com classe modal-close
   document.querySelectorAll(".modal-close").forEach(button => {
-    button.addEventListener("click", (e) => {
-      const modal = e.target.closest(".modal-overlay");
-      if (modal) {
-        modal.classList.add("hidden");
-      }
+    button.addEventListener("click", () => {
+      const modal = button.closest(".modal-overlay");
+      if (modal) modal.classList.add("hidden");
     });
   });
 
-  // Fecha o modal ao clicar fora da caixa do modal
-  window.addEventListener("click", (e) => {
-    if (e.target.classList.contains("modal-overlay")) {
-      e.target.classList.add("hidden");
-    }
+  // Fecha o modal ao clicar fora da caixa (na overlay)
+  document.querySelectorAll(".modal-overlay").forEach(overlay => {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        overlay.classList.add("hidden");
+      }
+    });
   });
 </script>
+
+
 
 </body>
 </html>

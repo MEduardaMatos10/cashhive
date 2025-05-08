@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +12,6 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    /* Certifique-se de que esta classe é usada apenas para o modal de sair */
 }
 
 .modal-overlay:not(.hidden) {
@@ -20,116 +19,64 @@
     pointer-events: all;
 }
 
+/* === Caixa do modal === */
 .modal-box {
     font-family: "Inter", sans-serif;
-    background: #FFFFFF;
-    color: #000000;
-    padding: 24px;
-    border-radius: 24px;
-    width: 35%;
-    max-width: 1000px;
-    height: 35%;
+    background: #ffffff;
+    color: #0A1D56;
+    padding: 32px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 460px;
     position: relative;
-    animation: fadeIn 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    background: transparent;
-    border: none;
-    color: #2A3645;
-    cursor: pointer;
-}
-
-.modal-subject {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
+/* === Título === */
 .modal-title {
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
-    margin-bottom: 1.5rem;
-    color: #142747;
+    margin-bottom: 24px;
+    color: #1A1A2E;
 }
 
 .modal-title span {
     font-weight: 700;
 }
 
-.modal-form {
-    width: 100%;
-}
 
+/* === Formulário de botões === */
 .modal-form form {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 24px;
-}
-
-.sim-btn button, .nao-btn button {
+  }
+  
+  .sim-btn button,
+  .nao-btn button {
+    border-radius: 8px;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
     border: none;
-    color: #F8F8F8;
-    text-align: center;
     cursor: pointer;
-}
+  }
+  
+  .sim-btn button {
+    background-color: #0A1D56;
+    color: #ffffff;
+  }
+  
+  .nao-btn button {
+    background-color: #A8B2C5;
+    color: #ffffff;
+  }
 
-.sim-btn button {
-    background-color: #142747;
-    border-radius: 8px;
-    width: 120px;
-    height: 40px;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.nao-btn button {
-    background-color: #93A2B7;
-    border-radius: 8px;
-    width: 120px;
-    height: 40px;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-#modal-cadastro {
-    /* Estilos específicos para o modal de cadastro */
-}
-
-#modal-cadastro .modal-box {
-    /* Estilos para a caixa do modal de cadastro */
-}
-
-#modal-cadastro .modal-title {
-    /* Estilos para o título do modal de cadastro */
-}
-
-#modal-cadastro .criar-btn button {
-    /* Estilos para o botão de criar conta */
-}
-
-#modal-sair {
-    /* Estilos específicos para o modal de sair */
-}
-
-#modal-sair .modal-box {
-    /* Estilos para a caixa do modal de sair */
-}
-
-#modal-sair .modal-title {
-    /* Estilos para o título do modal de sair */
-}
-
-#modal-sair .sim-btn button, #modal-sair .nao-btn button {
-    /* Estilos para os botões do modal de sair */
-}
+  
