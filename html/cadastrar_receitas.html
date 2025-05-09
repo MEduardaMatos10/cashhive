@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+""<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -57,7 +57,6 @@
                 </ul>
             </nav>
         </aside>
-        
 
   <!-- Modal de Sair -->
   <div class="modal-overlay hidden" id="modal-sair">
@@ -85,83 +84,71 @@
     </div>
 </div>
 
-<main class="input-receitas">
-    <form>
-      <div class="form-container">
-        <h2>Cadastrar Receitas</h2>
-  
-        <div class="form-group">
-          <label for="data-venda">Data da venda</label>
-          <input type="date" id="data-venda" required>
-  
-          <label for="nome-cliente">Nome do Cliente</label>
-          <input type="text" id="nome-cliente" required>
-  
-          <label for="nome-produto">Nome do Produto</label>
-          <input type="text" id="nome-produto" required>
-  
-          <label for="valor-unitario">Valor Unitário</label>
-          <input type="number" id="valor-unitario" step="0.01" required>
-  
-          <label for="categoria">Categoria</label>
-          <select id="categoria" required>
-            <option value="">Selecione</option>
-            <option value="alimentos">Alimentos</option>
-            <option value="bebidas">Bebidas</option>
-            <option value="outros">Outros</option>
-          </select>
-  
-          <label for="pagamento">Forma de Pagamento</label>
-          <select id="pagamento" required>
-            <option value="">Selecione</option>
-            <option value="dinheiro">Dinheiro</option>
-            <option value="cartao">Cartão</option>
-            <option value="pix">PIX</option>
-          </select>
-  
-          <label for="quantidade">Quantidade</label>
-          <input type="number" id="quantidade" required>
-  
-          <label for="total">TOTAL</label>
-          <input type="number" id="total" step="0.01" readonly>
+<div class="input-receitas">
+    <form action="#">
+        <div class="form-title">
+            <h2>Cadastrar Receitas</h2>
         </div>
-  
-        <div class="button-receitas">
-          <button type="submit" class="btn-cadastrar">Cadastrar</button>
-          <button type="button" class="btn-excluir">Excluir</button>
+
+        <div class="input-group">
+            <div class="input-box">
+                <label for="data-venda">Data da venda</label>
+                <input type="date" id="data-venda" name="data-venda" required>
+            </div>
+
+            <div class="input-box">
+                <label for="nome-cliente">Nome do Cliente</label>
+                <input type="text" id="nome-cliente" name="nome-cliente" required>
+            </div>
+
+            <div class="input-box">
+                <label for="nome-produto">Nome do Produto</label>
+                <input type="text" id="nome-produto" name="nome-produto" required>
+            </div>
+
+            <div class="input-box">
+                <label for="valor-unitario">Valor Unitário</label>
+                <input type="number" id="valor-unitario" name="valor-unitario" step="0.01" required>
+            </div>
+
+            <div class="input-box">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="">Selecione</option>
+                    <option value="alimentos">Alimentos</option>
+                    <option value="bebidas">Bebidas</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label for="pagamento">Forma de Pagamento</label>
+                <select id="pagamento" name="pagamento" required>
+                    <option value="">Selecione</option>
+                    <option value="dinheiro">Dinheiro</option>
+                    <option value="cartao">Cartão</option>
+                    <option value="pix">PIX</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade" name="quantidade" required>
+            </div>
+
+            <div class="input-box">
+                <label for="total">TOTAL</label>
+                <input type="number" id="total" name="total" step="0.01" readonly>
+            </div>
         </div>
-      </div>
+
+        <div class="criar-btn">
+            <button type="submit" class="btn-cadastrar">Cadastrar</button>
+            <button type="button" class="btn-excluir">Excluir</button>
+        </div>
     </form>
-  </main>
-
-<!-- JavaScript -->
-<script>
-  // Abre o modal ao clicar no botão com data-modal
-  document.querySelectorAll(".open-modal").forEach(button => {
-    button.addEventListener("click", () => {
-      const modalId = button.getAttribute("data-modal");
-      const modal = document.getElementById(modalId);
-      if (modal) modal.classList.remove("hidden");
-    });
-  });
-
-  // Fecha o modal ao clicar no botão com classe modal-close
-  document.querySelectorAll(".modal-close").forEach(button => {
-    button.addEventListener("click", () => {
-      const modal = button.closest(".modal-overlay");
-      if (modal) modal.classList.add("hidden");
-    });
-  });
-
-  // Fecha o modal ao clicar fora da caixa (na overlay)
-  document.querySelectorAll(".modal-overlay").forEach(overlay => {
-    overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) {
-        overlay.classList.add("hidden");
-      }
-    });
-  });
-</script>
+</div>
 
 </body>
 </html>
+

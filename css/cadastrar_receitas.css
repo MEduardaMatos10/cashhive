@@ -110,105 +110,113 @@ body {
 
 /* Área principal */
 .input-receitas {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    max-width: 800px;
-    margin: 40px auto;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 2px solid #1f3a60;
-  }
-  
-  /* Cabeçalho */
-  .form-container h2 {
-    background-color: #1f3a60;
-    color: white;
-    padding: 15px 20px;
-    margin: -20px -20px 20px -20px;
-    border-radius: 10px 10px 0 0;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-  
-  /* Botão "Ver Receitas" no canto */
-  .form-container h2::after {
-    content: "Ver Receitas";
-    background-color: #f9c94f;
-    color: #1f3a60;
-    padding: 5px 15px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    position: absolute;
-    right: 20px;
-  }
-  
-  /* Grid dos campos */
-  .form-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  
-  /* Labels */
-  .form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  /* Inputs e selects */
-  .form-group input,
-  .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    font-size: 14px;
-    box-sizing: border-box;
-  }
-  
-  /* Área dos botões */
-  .button-receitas {
-    margin-top: 25px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-  }
-  
-  /* Botão "Cadastrar" */
-  .btn-cadastrar {
-    background-color: #1f3a60;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .btn-cadastrar:hover {
-    background-color: #2c4f87;
-  }
-  
-  /* Botão "Excluir" */
-  .btn-excluir {
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .btn-excluir:hover {
-    background-color: #c9302c;
-  }
-  
+  font-family: "Inter", sans-serif;
+  max-width: 900px;
+  margin: 80px auto;
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Cabeçalho do formulário */
+.form-title h2 {
+  background-color: #1f3a60;
+  color: #F8F8F8;
+  padding: 15px 20px;
+  border-radius: 10px 10px 0 0;
+  font-size: 24px;
+  font-weight: 600;
+  margin: -30px -40px 30px -40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botão Ver Receitas */
+.form-title h2::after {
+  content: "Ver Receitas";
+  background-color: #FFD36E;
+  color: #142747;
+  font-weight: 700;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Grid de campos */
+.input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 25px;
+}
+
+/* Labels e campos */
+.input-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input-box input,
+.input-box select {
+  padding: 10px;
+  border: 2px solid #1f3a60;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Campo readonly */
+.input-box input[readonly] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+/* Botões alinhados à direita com gap */
+.criar-btn {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+/* Botão Cadastrar */
+.btn-cadastrar {
+  background-color: #1f3a60;
+  color: white;
+  border: 2px solid #1f3a60;
+  padding: 10px 25px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cadastrar:hover {
+  background-color: #2c4f87;
+}
+
+/* Botão Excluir - vermelho */
+.btn-excluir {
+  background-color: #d9534f;
+  color: white;
+  border: 2px solid #d9534f;
+  padding: 10px 25px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-excluir:hover {
+  background-color: #c9302c;
+}
