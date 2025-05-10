@@ -64,22 +64,21 @@
             </div>
              <button class="add-user-btn"><a href="redefinir_senha.html">Alterar senha</a></button>
           </div>
-  <main class="main">
-      <div class="form-grid">
-        <input type="text" placeholder="*Nome">
-        <input type="text" placeholder="Cidade">
-        <input type="text" placeholder="CPF">
-        <input type="text" placeholder="Estado">
-        <input type="text" placeholder="CEP">
-        <input type="text" placeholder="Telefone">
-        <input type="text" placeholder="Rua">
-        <input type="text" placeholder="DDD">
-        <input type="text" placeholder="Bairro">
-        <input type="email" placeholder="Email">
-      </div>
-      <button class="btn">Salvar</button>
-    </div>
-
+          <main class="main">
+            <form id="form-dados" class="form-grid">
+              <input name="nome" type="text" placeholder="*Nome" required>
+              <input name="cidade" type="text" placeholder="Cidade">
+              <input name="cpf" type="text" placeholder="CPF">
+              <input name="estado" type="text" placeholder="Estado">
+              <input name="cep" type="text" placeholder="CEP">
+              <input name="telefone" type="text" placeholder="Telefone">
+              <input name="rua" type="text" placeholder="Rua">
+              <input name="ddd" type="text" placeholder="DDD">
+              <input name="bairro" type="text" placeholder="Bairro">
+              <input name="email" type="email" placeholder="Email">
+              <button type="submit" class="btn">Salvar</button>
+            </form>
+          </main>
     <div class="header-card">
         <div class="left-content">
           <img src="../img/profileadiction.svg" alt="Ícone usuário" />
@@ -253,7 +252,26 @@
     }
   });
 </script>
+<script>
+  document.getElementById('form-dados').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    const response = await fetch('/api/salvar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      alert('Dados salvos com sucesso!');
+    } else {
+      alert('Erro ao salvar os dados.');
+    }
+  });
+</script> /* JavaScript para o formulario de cadastro, rever para conectar com o banco de dados */
 
 </body>
 </html>
