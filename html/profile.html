@@ -125,28 +125,28 @@
   <!-- Modal de Sair -->
   <div class="modal-overlay hidden" id="modal-sair">
     <div class="modal-box">
-        <button class="modal-close close-modal close-modal-sair" type="button">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+      <button class="modal-close close-modal" type="button">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
 
-        <div class="modal-subject">
-            <div class="modal-header">
-                <p class="modal-title">Deseja mesmo <span>sair</span> da conta?</p>
-            </div>
-
-            <div class="modal-form">
-                <form action="#">
-                    <div class="sim-btn">
-                        <a href="/html/login.html"><button type="button">Sim</button></a>
-                    </div>
-                    <div class="nao-btn">
-                        <button type="button" class="close-modal close-modal-sair">Não</button>
-                    </div>
-                </form>
-            </div>
+      <div class="modal-subject">
+        <div class="modal-header">
+          <p class="modal-title">Deseja mesmo <span>sair</span> da conta?</p>
         </div>
+
+        <div class="modal-form">
+          <form action="#">
+            <div class="sim-btn">
+              <a href="/html/login.html"><button type="button">Sim</button></a>
+            </div>
+            <div class="nao-btn">
+              <button type="button" class="close-modal">Não</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
 <!-- Modal de Cadastro -->
 <div class="modal-overlay hidden" id="modal-cadastro">
@@ -235,9 +235,10 @@
     });
   });
 
-  // Fecha o modal ao clicar em qualquer botão com a classe modal-close
-  document.querySelectorAll(".modal-close").forEach(button => {
+  // Fecha o modal ao clicar em qualquer botão com a classe modal-close ou na classe nao-btn
+  document.querySelectorAll(".close-modal, .nao-btn button").forEach(button => {
     button.addEventListener("click", (e) => {
+      e.preventDefault(); // Evita o comportamento padrão do botão
       const modal = e.target.closest(".modal-overlay");
       if (modal) {
         modal.classList.add("hidden");
