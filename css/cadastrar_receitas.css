@@ -114,21 +114,17 @@ body {
 
 
 .main-container {
-    margin-left: 250px; /* Matches the width of the aside */
-    margin-top: 70px; /* Adjusts for the header */
-    padding: 20px;
+    margin-left: 250px; /* Largura do menu lateral */
+    padding: 50px;
+    margin-top: 10px; /* Altura do cabeçalho */
     background-color: #f4f6f5;
-    min-height: calc(100vh - 70px);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    box-sizing: border-box;
+    min-height: calc(100vh - 70px); /* Altura total menos a altura do cabeçalho */
 }
 
 /* Área principal */
 .input-receitas {
   font-family: "Inter", sans-serif;
-  max-width: 900px;
+
   margin: 80px auto;
   background-color: #ffffff;
   padding: 30px 40px;

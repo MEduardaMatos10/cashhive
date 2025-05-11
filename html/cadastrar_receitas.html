@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/modal_excluir_receita.css">
   <link rel="stylesheet" href="../css/modalsair.css">
-  <link rel="stylesheet" href="../css/modalcadastro.css">
+  
 
 </head>
 <body>
@@ -75,7 +75,7 @@
                     <div class="modal-form">
                         <form>
                             <div class="sim-btn">
-                                <button type="button" id="btn-sim">Sim</button>
+                                <a href="login.html"><button type="button" id="btn-sim">Sim</button></a>
                             </div>
                             <div class="nao-btn">
                                 <button type="button" id="btn-nao">Não</button>
@@ -214,8 +214,8 @@
             });
         });
     
-        // Fecha o modal ao clicar no botão de fechar
-        document.querySelectorAll(".close-modal").forEach(button => {
+        // Fecha o modal ao clicar no botão de fechar ou no botão "Não"
+        document.querySelectorAll(".close-modal, #btn-nao").forEach(button => {
             button.addEventListener("click", () => {
                 button.closest(".modal-overlay").classList.add("hidden");
             });
@@ -227,10 +227,29 @@
                 e.target.classList.add("hidden");
             }
         });
-    </script>
 
-    <script>
-        // Format the TOTAL input with currency symbol
+        // Verifica se o formulário está preenchido antes de abrir o modal de exclusão
+        const botaoAbrirModalExcluir = document.querySelector(".abrir-modal-excluir");
+        botaoAbrirModalExcluir.addEventListener("click", (e) => {
+            e.preventDefault(); // Evita o comportamento padrão do botão
+            const inputs = document.querySelectorAll(".input-receitas input, .input-receitas select");
+            let isFormValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isFormValid = false;
+                }
+            });
+
+            if (isFormValid) {
+                const modalExcluirReceita = document.getElementById("modal-excluir-receita");
+                modalExcluirReceita.classList.remove("hidden");
+            } else {
+                alert("Por favor, preencha todos os campos antes de excluir.");
+            }
+        });
+
+        // Calcula o total automaticamente
         document.getElementById("quantidade").addEventListener("input", calculateTotal);
         document.getElementById("valor-unitario").addEventListener("input", calculateTotal);
 
@@ -245,30 +264,6 @@
                 currency: "BRL"
             });
         }
-
-        // Script para o modal de exclusão de receita
-        const botaoAbrirModalExcluir = document.querySelector(".abrir-modal-excluir");
-        const modalExcluirReceita = document.getElementById("modal-excluir-receita"); // Scoped variable
-        const botaoFecharModalExcluir = modalExcluirReceita.querySelector(".fechar-modal-excluir");
-        const botaoCancelarExclusao = document.getElementById("cancelar-exclusao");
-
-        botaoAbrirModalExcluir.addEventListener("click", () => {
-            modalExcluirReceita.classList.remove("hidden");
-        });
-
-        botaoFecharModalExcluir.addEventListener("click", () => {
-            modalExcluirReceita.classList.add("hidden");
-        });
-
-        botaoCancelarExclusao.addEventListener("click", () => {
-            modalExcluirReceita.classList.add("hidden");
-        });
-
-        window.addEventListener("click", (e) => {
-            if (e.target === modalExcluirReceita) {
-                modalExcluirReceita.classList.add("hidden");
-            }
-        });
     </script>
 
 </body>
