@@ -179,9 +179,24 @@
     <script>
 
         document.querySelectorAll(".open-modal2").forEach(button => {
-            button.addEventListener("click", () => {
-                const modalId = button.getAttribute("data-modal-2");
-                document.getElementById(modalId).classList.remove("hidden");
+            button.addEventListener("click", (e) => {
+                e.preventDefault(); // Prevent default button behavior
+                const novaSenha = document.getElementById("nova-senha").value.trim();
+                const repetirSenha = document.getElementById("repetir-senha").value.trim();
+                const minLength = 8; // Minimum password length
+
+                if (novaSenha && repetirSenha) {
+                    if (novaSenha.length < minLength || repetirSenha.length < minLength) {
+                        alert(`A senha deve ter pelo menos ${minLength} caracteres.`);
+                    } else if (novaSenha === repetirSenha) {
+                        const modalId = button.getAttribute("data-modal-2");
+                        document.getElementById(modalId).classList.remove("hidden");
+                    } else {
+                        alert("As senhas não coincidem. Por favor, tente novamente.");
+                    }
+                } else {
+                    alert("Por favor, preencha todos os campos.");
+                }
             });
         });
       

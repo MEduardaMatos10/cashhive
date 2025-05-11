@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/modalsair.css">
   <link rel="stylesheet" href="../css/modalcadastro.css">
+  <link rel="stylesheet" href="../css/modaldesativar.css">
 </head>
 <body>
 
@@ -104,7 +105,7 @@
             <td>evelynbrenda@aluno.unifapce.edu.br</td>
             <td class="actions">
               <button class="btn-edit">Editar</button>
-              <button class="btn-deactivate">Desativar</button>
+              <button class="btn-desativar-conta js-open-modal-desativar" data-modal="modal-1">Desativar</button>
             </td>
           </tr>
           <tr>
@@ -113,7 +114,7 @@
             <td>ramonney@aluno.unifapce.edu.br</td>
             <td class="actions">
               <button class="btn-edit">Editar</button>
-              <button class="btn-deactivate">Desativar</button>
+              <button class="btn-desativar-conta js-open-modal-desativar" data-modal="modal-1">Desativar</button>
             </td>
           </tr>
         </tbody>
@@ -222,6 +223,32 @@
   </div>
 </div>
 
+<!-- Modal Desativar Conta -->
+<div class="modal-overlay-desativar hidden" id="modal-1">
+  <div class="modal-box-desativar">
+      <button class="modal-close-desativar js-close-modal-desativar" type="button">
+          <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-subject-desativar">
+          <div class="modal-header-desativar">
+              <p class="modal-title-desativar">Deseja mesmo <span>desativar</span> a conta deste usuário?</p>
+          </div>
+
+          <div class="modal-form-desativar">
+              <form action="#">
+                  <div class="sim-btn-desativar">
+                      <button type="button">Sim</button>
+                  </div>
+                  <div class="nao-btn-desativar">
+                      <button type="button">Não</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
 <!-- JavaScript -->
 <script>
   document.querySelectorAll(".open-modal").forEach(button => {
@@ -271,7 +298,236 @@
       alert('Erro ao salvar os dados.');
     }
   });
-</script> /* JavaScript para o formulario de cadastro, rever para conectar com o banco de dados */
+  // Script para o botão de editar
+ 
+</script> 
+  
+<script>
+  // Script seguro para modal de desativar conta
+  const openModalDesativarBtns = document.querySelectorAll(".js-open-modal-desativar");
+  const modalDesativar = document.getElementById("modal-1");
+  const closeModalDesativarBtn = modalDesativar.querySelector(".js-close-modal-desativar");
+  const naoBtnDesativar = modalDesativar.querySelector(".nao-btn-desativar button");
+  const simBtnDesativar = modalDesativar.querySelector(".sim-btn-desativar button");
+
+  let currentRow; // Variável para armazenar a linha atual
+
+  openModalDesativarBtns.forEach(button => {
+    button.addEventListener("click", (e) => {
+      currentRow = e.target.closest("tr"); // Armazena a linha da tabela associada ao botão
+      modalDesativar.classList.remove("hidden");
+    });
+  });
+
+  closeModalDesativarBtn.addEventListener("click", () => {
+    modalDesativar.classList.add("hidden");
+  });
+
+  naoBtnDesativar.addEventListener("click", () => {
+    modalDesativar.classList.add("hidden");
+  });
+
+  simBtnDesativar.addEventListener("click", () => {
+    if (currentRow) {
+      currentRow.remove(); // Remove a linha da tabela
+      alert("Conta desativada com sucesso!");
+    }
+    modalDesativar.classList.add("hidden");
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modalDesativar) {
+      modalDesativar.classList.add("hidden");
+    }
+  });
+</script>
+<script>
+  // Script para cadastrar novo usuário
+  const formCadastro = document.querySelector("#modal-cadastro .modal-form-new-user form");
+  const tabelaUsuarios = document.querySelector(".card table tbody");
+
+  formCadastro.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(formCadastro);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/usuarios', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        const novoUsuario = await response.json();
+
+        // Adiciona o novo usuário à tabela
+        const novaLinha = document.createElement("tr");
+        novaLinha.innerHTML = `
+          <td>${new Date().toLocaleDateString()}</td>
+          <td>${novoUsuario.nome} ${novoUsuario.sobrenome}</td>
+          <td>${novoUsuario.email}</td>
+          <td class="actions">
+            <button class="btn-edit">Editar</button>
+            <button class="btn-desativar-conta js-open-modal-desativar" data-modal="modal-1">Desativar</button>
+          </td>
+        `;
+        tabelaUsuarios.appendChild(novaLinha);
+
+        // Reatribui eventos aos botões "Desativar" para novos usuários
+        novaLinha.querySelector(".js-open-modal-desativar").addEventListener("click", (e) => {
+          currentRow = e.target.closest("tr");
+          modalDesativar.classList.remove("hidden");
+        });
+
+        // Fecha o modal de cadastro
+        document.getElementById("modal-cadastro").classList.add("hidden");
+
+        // Limpa o formulário
+        formCadastro.reset();
+
+        alert("Usuário cadastrado com sucesso!");
+      } else {
+        alert("Erro ao cadastrar o usuário.");
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar o usuário:", error);
+      alert("Erro ao cadastrar o usuário.");
+    }
+  });
+</script>
+<script>
+  // Script para abrir o modal de cadastro com informações preenchidas para edição
+  document.querySelectorAll(".btn-edit").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const row = e.target.closest("tr");
+      const nomeCompleto = row.children[1].textContent.trim().split(" ");
+      const email = row.children[2].textContent.trim();
+
+      // Preenche os campos do modal de cadastro
+      document.getElementById("nome").value = nomeCompleto[0];
+      document.getElementById("sobrenome").value = nomeCompleto.slice(1).join(" ");
+      document.getElementById("cpf").value = ""; // Preencha com o CPF se disponível
+      document.getElementById("email").value = email;
+      document.getElementById("cargo").value = ""; // Preencha com o cargo se disponível
+      document.getElementById("nivel").value = ""; // Preencha com o nível de permissão se disponível
+
+      // Altera o texto do botão para "Alterar Informações"
+      const submitButton = document.querySelector("#modal-cadastro .criar-btn button");
+      submitButton.textContent = "Alterar Informações";
+
+      // Abre o modal de cadastro
+      document.getElementById("modal-cadastro").classList.remove("hidden");
+    });
+  });
+
+  // Submissão do formulário de cadastro/edição
+  document.querySelector("#modal-cadastro .modal-form-new-user form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/usuarios', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert("Usuário salvo com sucesso!");
+        location.reload(); // Atualiza a página para refletir as alterações
+      } else {
+        alert("Erro ao salvar o usuário.");
+      }
+    } catch (error) {
+      console.error("Erro ao salvar o usuário:", error);
+      alert("Erro de conexão.");
+    }
+
+    // Restaura o texto do botão para "Criar Conta"
+    const submitButton = document.querySelector("#modal-cadastro .criar-btn button");
+    submitButton.textContent = "Criar Conta";
+
+    // Fecha o modal de cadastro
+    document.getElementById("modal-cadastro").classList.add("hidden");
+  });
+</script>
+<script>
+  // Script para abrir o modal de cadastro com formulário limpo
+  document.querySelector(".open-modal[data-modal='modal-cadastro']").addEventListener("click", () => {
+    // Limpa os campos do formulário
+    document.querySelectorAll("#modal-cadastro input").forEach(input => input.value = "");
+    document.querySelector("#cargo").value = "";
+    document.querySelector("#nivel").value = "";
+
+    // Restaura o texto do botão para "Criar Conta"
+    const submitButton = document.querySelector("#modal-cadastro .criar-btn button");
+    submitButton.textContent = "Criar Conta";
+
+    // Abre o modal de cadastro
+    document.getElementById("modal-cadastro").classList.remove("hidden");
+  });
+
+  // Script para abrir o modal de cadastro com informações preenchidas para edição
+  document.querySelectorAll(".btn-edit").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const row = e.target.closest("tr");
+      const nomeCompleto = row.children[1].textContent.trim().split(" ");
+      const email = row.children[2].textContent.trim();
+
+      // Preenche os campos do modal de cadastro
+      document.getElementById("nome").value = nomeCompleto[0];
+      document.getElementById("sobrenome").value = nomeCompleto.slice(1).join(" ");
+      document.getElementById("cpf").value = ""; // Preencha com o CPF se disponível
+      document.getElementById("email").value = email;
+      document.getElementById("cargo").value = ""; // Preencha com o cargo se disponível
+      document.getElementById("nivel").value = ""; // Preencha com o nível de permissão se disponível
+
+      // Altera o texto do botão para "Alterar Informações"
+      const submitButton = document.querySelector("#modal-cadastro .criar-btn button");
+      submitButton.textContent = "Alterar Informações";
+
+      // Abre o modal de cadastro
+      document.getElementById("modal-cadastro").classList.remove("hidden");
+    });
+  });
+
+  // Submissão do formulário de cadastro/edição
+  document.querySelector("#modal-cadastro .modal-form-new-user form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/usuarios', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert("Usuário salvo com sucesso!");
+        location.reload(); // Atualiza a página para refletir as alterações
+      } else {
+        alert("Erro ao salvar o usuário.");
+      }
+    } catch (error) {
+      console.error("Erro ao salvar o usuário:", error);
+      alert("Erro de conexão.");
+    }
+
+    // Restaura o texto do botão para "Criar Conta"
+    const submitButton = document.querySelector("#modal-cadastro .criar-btn button");
+    submitButton.textContent = "Criar Conta";
+
+    // Fecha o modal de cadastro
+    document.getElementById("modal-cadastro").classList.add("hidden");
+  });
+</script>
 
 </body>
 </html>

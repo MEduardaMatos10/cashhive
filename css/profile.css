@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif; /* Standardized font */
+    font-size: 16px; /* Fixed font size */
     background-color: #f4f6f5;
 }
 
@@ -106,6 +107,7 @@ body {
 .logout:hover {
     font-weight: bold;
     cursor: pointer;
+    
 }
 
 .perfil-header {
@@ -184,6 +186,7 @@ body {
    
 }
   
+
 
 
 .form-grid {
@@ -270,11 +273,11 @@ table th, table td {
     background-color: #16305c;
 }
 
-.btn-deactivate {
+.btn-desativar-conta {
     background-color: #e74c3c;
     color: white;
 }
 
-.btn-deactivate:hover {
+.btn-desativar-conta:hover {
     background-color: #c0392b;
 }
