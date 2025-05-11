@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
     background-color: #f4f6f5;
 }
 
@@ -47,12 +48,11 @@ body {
 }
 
 .nav li {
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
 .nav li a {
     color: white;
     text-decoration: none;
@@ -76,6 +76,13 @@ body {
 .submenu ul {
     padding-left: 30px;
     margin-top: 5px;
+}
+.submenu ul li {
+  padding: 5px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .submenu ul li a {
@@ -103,15 +110,21 @@ body {
     border: none;
 }
 
-.logout:hover {
-    font-weight: bold;
-    cursor: pointer;
+
+
+
+.main-container {
+    margin-left: 250px; /* Largura do menu lateral */
+    padding: 50px;
+    margin-top: 10px; /* Altura do cabeçalho */
+    background-color: #f4f6f5;
+    min-height: calc(100vh - 70px); /* Altura total menos a altura do cabeçalho */
 }
 
 /* Área principal */
 .input-receitas {
   font-family: "Inter", sans-serif;
-  max-width: 900px;
+
   margin: 80px auto;
   background-color: #ffffff;
   padding: 30px 40px;
@@ -121,7 +134,7 @@ body {
 }
 
 /* Cabeçalho do formulário */
-.form-title h2 {
+.form-title {
   background-color: #1f3a60;
   color: #F8F8F8;
   padding: 15px 20px;
@@ -135,15 +148,16 @@ body {
 }
 
 /* Botão Ver Receitas */
-.form-title h2::after {
-  content: "Ver Receitas";
+.ver-receitas {
   background-color: #FFD36E;
+  border-style: none;
   color: #142747;
   font-weight: 700;
-  padding: 8px 16px;
+  padding: 8px 60px;
   font-size: 14px;
   border-radius: 6px;
   cursor: pointer;
+
 }
 
 /* Grid de campos */
