@@ -1,6 +1,11 @@
 body {
     margin: 0;
+<<<<<<< HEAD
   font-family: "Inter", sans-serif;
+=======
+    font-family: 'Inter', sans-serif; /* Standardized font */
+    font-size: 16px; /* Fixed font size */
+>>>>>>> cb10e6fe925b712f3d2e6cc9fa91670bfc4abbac
     background-color: #f4f6f5;
 }
 
@@ -77,7 +82,13 @@ body {
     padding-left: 30px;
     margin-top: 5px;
 }
-
+.submenu ul li {
+    padding: 5px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .submenu ul li a {
     font-size: 14px;
     color: #dcdcdc;
@@ -101,11 +112,6 @@ body {
     text-decoration: none;
     font-size: 16px;
     border: none;
-}
-
-.logout:hover {
-    font-weight: bold;
-    cursor: pointer;
 }
 
 .perfil-header {
@@ -186,6 +192,7 @@ body {
   
 
 
+
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -211,6 +218,7 @@ input[type="text"], input[type="email"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 14px;
+    width: 80px;
 }
 
 .btn:hover {
@@ -269,11 +277,11 @@ table th, table td {
     background-color: #16305c;
 }
 
-.btn-deactivate {
+.btn-desativar-conta {
     background-color: #e74c3c;
     color: white;
 }
 
-.btn-deactivate:hover {
+.btn-desativar-conta:hover {
     background-color: #c0392b;
 }
