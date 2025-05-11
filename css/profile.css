@@ -1,11 +1,7 @@
 body {
     margin: 0;
-<<<<<<< HEAD
-  font-family: "Inter", sans-serif;
-=======
     font-family: 'Inter', sans-serif; /* Standardized font */
     font-size: 16px; /* Fixed font size */
->>>>>>> cb10e6fe925b712f3d2e6cc9fa91670bfc4abbac
     background-color: #f4f6f5;
 }
 
