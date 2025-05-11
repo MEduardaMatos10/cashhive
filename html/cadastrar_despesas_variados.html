@@ -5,7 +5,7 @@
   <title>CashHive System</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/cadastrar_despesas_produtos.css">
+  <link rel="stylesheet" href="../css/cadastrar_despesas_variados.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -61,8 +61,8 @@
         <nav class="nav-options">
             <ul>
                 <li><a href="cadastrar_despesas_funcionario.html">Funcionário</a></li>
-                <li class="active"><a href="cadastrar_despesas_produtos.html">Produtos</a></li>
-                <li><a href="cadastrar_despesas_variados.html">Variados</a></li>
+                <li><a href="cadastrar_despesas_produtos.html">Produtos</a></li>
+                <li class="active"><a href="cadastrar_despesas_variados.html">Variados</a></li>
             </ul>
         </nav>
     </div>
@@ -104,43 +104,23 @@
                 <div class="input-group">
 
                     <div class="input-box">
-                        <label for="data-compra">Data da Compra</label>
-                        <input type="date" id="data-compra" name="data-compra">
+                        <label for="data-conta">Data da Conta</label>
+                        <input type="date" id="data-conta" name="data-conta">
                     </div>
 
                     <div class="input-box">
-                        <label for="validade">Validade</label>
-                        <input type="date" id="validade" name="validade">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" id="descricao" name="descricao">
                     </div>
 
                     <div class="input-box">
-                        <label for="nome-produto">Nome do Produto</label>
-                        <input type="text" id="nome-produto" name="nome-produto">
+                        <label for="variado">Variado</label>
+                        <input type="text" id="variado" name="variado">
                     </div>
 
                     <div class="input-box">
-                        <label for="valor-unitario">Valor Unitário</label>
-                        <input type="number" id="valor-unitario" name="valor-unitario" step="0.01">
-                    </div>
-
-                    <div class="input-box">
-                        <label for="quantidade">Quantidade</label>
-                        <input type="number" id="quantidade" name="quantidade">
-                    </div>
-
-                    <div class="input-box">
-                        <label for="fornecedor">Fornecedor</label>
-                        <select id="fornecedor" name="fornecedor">
-                            <option value="">Selecione</option>
-                            <option value="Kibon">Kibon</option>
-                            <option value="Nestlé">Nestlé</option>
-                            <option value="Mareni">Mareni</option>
-                        </select>
-                    </div>
-
-                    <div class="input-box">
-                        <label for="total">TOTAL</label>
-                        <input type="text" id="total" name="total">
+                        <label for="valor">Valor</label>
+                        <input type="number" id="valor" name="valor" step="0.01">
                     </div>
 
                 </div>
