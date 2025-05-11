@@ -71,15 +71,13 @@
         <!-- Modal de Sair -->
         <div class="modal-overlay hidden" id="modal-sair">
             <div class="modal-box">
-                <button class="modal-close close-modal close-modal-sair" type="button">
+                <button class="modal-close close-modal close-modal-sair" type="button" aria-label="Fechar modal">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
-
                 <div class="modal-subject">
                     <div class="modal-header">
                         <p class="modal-title">Deseja mesmo <span>sair</span> da conta?</p>
                     </div>
-
                     <div class="modal-form">
                         <form>
                             <div class="sim-btn">
@@ -102,37 +100,120 @@
 
             <form>
                 <div class="input-group">
-
                     <div class="input-box">
                         <label for="data-conta">Data da Conta</label>
-                        <input type="date" id="data-conta" name="data-conta">
+                        <input type="date" id="data-conta" name="data-conta" required>
                     </div>
-
                     <div class="input-box">
                         <label for="descricao">Descrição</label>
-                        <input type="text" id="descricao" name="descricao">
+                        <input type="text" id="descricao" name="descricao" required>
                     </div>
-
                     <div class="input-box">
-                        <label for="variado">Variado</label>
-                        <input type="text" id="variado" name="variado">
+                        <label for="variado">Categoria</label>
+                        <input type="text" id="variado" name="variado" required>
                     </div>
-
                     <div class="input-box">
                         <label for="valor">Valor</label>
-                        <input type="number" id="valor" name="valor" step="0.01">
+                        <input type="number" id="valor" name="valor" step="0.01" required>
                     </div>
-
                 </div>
 
                 <div class="criar-btn">
                     <button type="submit" class="btn-cadastrar">Cadastrar</button>
-                    <button type="button" class="btn-excluir">Excluir</button>
+                    <button type="button" class="btn-excluir abrir-modal-excluir" data-modal="modal-excluir-receita">Excluir</button>
                 </div>
             </form>
         </div>
     </main>
 </div>
+
+<div class="modal-overlay hidden" id="modal-excluir-receita">
+    <div class="modal-box">
+        <button class="modal-close fechar-modal-excluir" type="button" aria-label="Fechar modal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-subject">
+            <div class="modal-header">
+                <p class="modal-title">Deseja mesmo <span>excluir</span> essa receita?</p>
+            </div>
+            <div class="modal-form">
+                <form action="#">
+                    <div class="sim-btn">
+                        <button type="button" id="confirmar-exclusao">Sim</button>
+                    </div>
+                    <div class="nao-btn">
+                        <button type="button" id="cancelar-exclusao">Não</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll(".open-modal").forEach(button => {
+        button.addEventListener("click", () => {
+            const modalId = button.getAttribute("data-modal");
+            document.getElementById(modalId).classList.remove("hidden");
+        });
+    });
+
+    document.querySelectorAll(".close-modal, #btn-nao").forEach(button => {
+        button.addEventListener("click", () => {
+            button.closest(".modal-overlay").classList.add("hidden");
+        });
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal-overlay")) {
+            e.target.classList.add("hidden");
+        }
+    });
+
+    const botaoAbrirModalExcluir = document.querySelector(".abrir-modal-excluir");
+    botaoAbrirModalExcluir.addEventListener("click", (e) => {
+        e.preventDefault();
+        const inputs = document.querySelectorAll(".input-receitas input, .input-receitas select");
+        let isFormValid = true;
+
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                isFormValid = false;
+            }
+        });
+
+        if (isFormValid) {
+            document.getElementById("modal-excluir-receita").classList.remove("hidden");
+        } else {
+            alert("Por favor, preencha todos os campos antes de excluir.");
+        }
+    });
+
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const inputs = document.querySelectorAll(".input-group input, .input-group select");
+        let isFormValid = true;
+
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                isFormValid = false;
+                input.style.borderColor = "red";
+                input.setAttribute("title", "Este campo é obrigatório");
+            } else {
+                input.style.borderColor = "";
+                input.removeAttribute("title");
+            }
+        });
+
+        if (isFormValid) {
+            alert("Cadastro realizado com sucesso!");
+            // form.submit(); // Descomente se quiser enviar o formulário de fato
+        } else {
+            alert("Por favor, preencha todos os campos antes de cadastrar.");
+        }
+    });
+</script>
 
 </body>
 </html>

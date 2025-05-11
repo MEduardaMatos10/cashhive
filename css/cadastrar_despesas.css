@@ -49,10 +49,10 @@ body {
 }
 
 .nav li {
-    padding: 10px 15px; /* Ajustado o padding interno */
+    padding: 12px 20px;
     display: flex;
     align-items: center;
-    gap: 8px; /* Espaço entre o ícone e o texto */
+    gap: 10px;
 }
 
 .nav li a {
@@ -79,6 +79,14 @@ body {
 .submenu ul {
     padding-left: 30px;
     margin-top: 5px;
+}
+
+.submenu ul li {
+    padding: 5px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .submenu ul li a {
@@ -108,7 +116,11 @@ body {
     border: none;
 }
 
-
+/* Remove hover effect for logout */
+.logout:hover {
+    background-color: transparent;
+    cursor: default;
+}
 
 .main-container {
     margin-left: 250px; /* Largura do menu lateral */

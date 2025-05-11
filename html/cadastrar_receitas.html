@@ -249,6 +249,33 @@
             }
         });
 
+        // Verifica se o formulário está preenchido antes de permitir o cadastro
+        const form = document.querySelector("form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault(); // Evita o envio do formulário se não estiver válido
+            const inputs = document.querySelectorAll(".input-group input, .input-group select");
+            let isFormValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isFormValid = false;
+                    input.style.borderColor = "red"; // Destaca o campo vazio
+                    input.setAttribute("title", "Este campo é obrigatório"); // Adiciona um tooltip para o usuário
+                } else {
+                    input.style.borderColor = ""; // Remove o destaque se preenchido
+                    input.removeAttribute("title"); // Remove o tooltip
+                }
+            });
+
+            if (isFormValid) {
+                alert("Cadastro realizado com sucesso!");
+                // Remova o comentário abaixo para enviar o formulário apenas se estiver válido
+                // form.submit();
+            } else {
+                alert("Por favor, preencha todos os campos antes de cadastrar.");
+            }
+        });
+
         // Calcula o total automaticamente
         document.getElementById("quantidade").addEventListener("input", calculateTotal);
         document.getElementById("valor-unitario").addEventListener("input", calculateTotal);

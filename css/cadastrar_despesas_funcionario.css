@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
     background-color: #f4f6f5;
 }
 
@@ -16,13 +17,14 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 5x;
 }
 
 .logo img {
     height: 50px;
-}
+    margin-left: 20px;
 
+}
 .user p {
     font-size: 14px;
     font-style: italic;
@@ -46,12 +48,11 @@ body {
 }
 
 .nav li {
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
 .nav li a {
     color: white;
     text-decoration: none;
@@ -76,13 +77,12 @@ body {
     padding-left: 30px;
     margin-top: 5px;
 }
-
 .submenu ul li {
-    padding: 5px 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 5px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .submenu ul li a {
@@ -90,7 +90,6 @@ body {
     color: #dcdcdc;
     text-decoration: none;
 }
-
 .submenu ul li a:hover {
     text-decoration: underline;
 }
