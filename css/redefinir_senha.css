@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+  font-family: "Inter", sans-serif;
     background-color: #f4f6f5;
 }
 
@@ -100,10 +100,7 @@ body {
     border: none;
 }
 
-.logout:hover {
-    font-weight: bold;
-    cursor: pointer;
-}
+
 
 /* REDEFINIÇÃO DE SENHA - FORM */
 

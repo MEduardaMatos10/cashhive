@@ -138,14 +138,14 @@ body {
 }
 /* Main content */
 .main {
- padding: 38px;
-  width: 60%;
-  background: white;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
-  margin-left: calc(250px + ((100% - 250px - 60%) / 2));
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 0 6px 10px rgba(96, 122, 158, 0.6);
+    padding: 38px;
+    width: 60%;
+    background: white;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+    margin-left: calc(250px + ((100% - 250px - 60%) / 2));
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 6px 10px rgba(96, 122, 158, 0.6);
     
 }
 
@@ -153,7 +153,7 @@ body {
     display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0a214c;
+  background-color: #283F5D;
   color: white;
   height: 60px;
   border-radius: 8px 8px 0 0;
@@ -206,7 +206,7 @@ input[type="text"], input[type="email"] {
 }
 
 .btn {
-    background-color: #0a214c;
+    background-color: #283F5D;
     color: white;
     padding: 10px 15px;
     border: none;
