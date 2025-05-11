@@ -1,0 +1,258 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f5;
+}
+
+.container-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 70px;
+    background-color: #0e2442;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.user p {
+    font-size: 14px;
+    font-style: italic;
+    margin: 0;
+}
+
+.menu {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    background-color: #0e2442;
+    padding: 20px 0;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Garante que os itens fiquem em linha */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    gap: 5px; /* Reduzido o espaço entre os itens */
+}
+
+.nav li {
+    padding: 10px 15px; /* Ajustado o padding interno */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+}
+
+.nav li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%; /* Garante que o link ocupe toda a largura do item */
+}
+
+.nav li:hover {
+    background-color: #1d3557;
+    cursor: pointer;
+}
+
+.submenu summary {
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.submenu ul {
+    padding-left: 30px;
+    margin-top: 5px;
+}
+
+.submenu ul li a {
+    font-size: 14px;
+    color: #dcdcdc;
+    text-decoration: none;
+}
+
+.submenu ul li a:hover {
+    text-decoration: underline;
+}
+
+.logout {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout button {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+}
+
+.logout:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main-container {
+    margin-left: 250px; /* Largura do menu lateral */
+    padding: 50px;
+    margin-top: 70px; /* Altura do cabeçalho */
+    background-color: #f4f6f5;
+    min-height: calc(100vh - 70px); /* Altura total menos a altura do cabeçalho */
+}
+
+.form-title {
+  background-color: #1f3a60;
+  color: #F8F8F8;
+  padding: 15px 20px;
+  border-radius: 10px 10px 0 0;
+  font-size: 24px;
+  font-weight: 600;
+  margin: -30px -40px 30px -40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ver-despesas{
+  background-color: #FFD36E;
+  color:  #1f3a60;
+  font-weight: 700;
+  padding: 10px 80px;
+  font-size: 14px;
+  border-radius: 8px;
+  border-style: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Navegação secundária */
+.nav-category {
+    position: absolute;
+    top: 70px;
+    left: 18.5%;
+    width: 79%;
+    z-index: 999;
+    padding: 16px 24px;
+    background-color: #93A2B7;
+}
+
+.nav-options ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 50px; /* Ajustado o gap para reduzir a distância entre os itens */
+}
+
+.main {
+    margin-top: 10px; /* espaço para o cabeçalho + nav */
+}
+
+.nav-options ul li {
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 100px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-options ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+/* Estilo do item ativo */
+.nav-options ul li:hover {
+    background-color: #FFD36E;
+    font-weight: 700;
+}
+
+.nav-options ul li.active {
+    background-color: #FFD36E;
+    font-weight: 700;
+}
+
+
+/* DIV DE FILTROS */
+
+.nav-filter-category{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* TABELA */
+.main-tabela {
+    padding: 20px;
+    background-color: #F8F8F8;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 24px;
+}
+
+.tabela-receitas {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.tabela-receitas thead th {
+    background-color: #f1f3f5;
+    color: #333;
+    text-align: left;
+    padding: 12px 8px;
+    font-weight: 600;
+}
+
+.tabela-receitas tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+}
+
+.tabela-receitas tbody tr:hover {
+    background-color: #dfe3e8;
+}
+
+.tabela-receitas tbody td {
+    padding: 10px 8px;
+    color: #555;
+    text-align: left;
+}
+
+.tabela-receitas tbody td:last-child {
+    font-weight: 600;
+}
