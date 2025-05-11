@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>CashHive System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/despesa-funcionario.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../css/modalsair.css">
+</head>
+<body>
+
+<header class="container-header">
+  <div class="logo">
+    <img src="/img/logo.png" alt="Logo CashHive">
+  </div>
+  <div class="user">
+    <p>Usuário Fulano de Tal (00.623.904/0001-73)</p>
+  </div>
+</header>
+
+<div class="main-container">
+  <aside class="menu">
+    <nav class="nav">
+      <ul>
+        <li>
+          <img src="/img/homeicon.svg" alt="Início">
+          <a href="homepage.html">Página inicial</a>
+        </li>
+        <li>
+          <img src="/img/profileicon.svg" alt="Perfil">
+          <a href="profile.html">Perfil</a>
+        </li>
+        <li>
+          <details class="submenu">
+            <summary>
+              <img src="/img/financeicon.svg" alt="Financeiro">
+              Financeiro
+            </summary>
+            <ul>
+              <li><a href="#">Receitas</a></li>
+              <li><a href="cadastrar_receitas.html">Cadastro de Receitas</a></li>
+              <li><a href="#">Despesas</a></li>
+              <li><a href="cadastrar_despesas_funcionario.html">Cadastro de Despesas</a></li>
+            </ul>
+          </details>
+        </li>
+        <li class="logout">
+          <img src="/img/logouticon.svg" alt="Sair">
+          <button class="open-modal" data-modal="modal-sair">Sair</button>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="nav-category">
+    <nav class="nav-options">
+      <ul>
+        <li class="active"><a href="cadastrar_despesas_funcionario.html">Funcionário</a></li>
+        <li><a href="cadastrar_despesas_produtos.html">Produtos</a></li>
+        <li><a href="cadastrar_despesas_variados.html">Variados</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="main">
+    <!-- TABELA DE DESPESAS -->
+    <section class="tabela-despesas">
+      <div class="filtros">
+        <select><option>2025</option></select>
+        <select><option>Janeiro</option></select>
+        <select><option>Nome</option></select>
+        <select><option>Função</option></select>
+        <select><option>Salário</option></select>
+        <select><option>Idade</option></select>
+      </div>
+
+      <div class="tabela-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Data Pagamento</th>
+              <th>Nome</th>
+              <th>Cargo</th>
+              <th>Salário</th>
+              <th>Idade</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dados virão do banco futuramente -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="acoes">
+        <p>* Selecionar pra excluir</p>
+        <button class="btn-imprimir"><i class="fa fa-print"></i> Imprimir</button>
+      </div>
+    </section>
+
+    <!-- Modal de Sair -->
+    <div class="modal-overlay hidden" id="modal-sair">
+      <div class="modal-box">
+        <button class="modal-close close-modal close-modal-sair" type="button">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-subject">
+          <div class="modal-header">
+            <p class="modal-title">Deseja mesmo <span>sair</span> da conta?</p>
+          </div>
+          <div class="modal-form">
+            <form>
+              <div class="sim-btn">
+                <button type="button" id="btn-sim">Sim</button>
+              </div>
+              <div class="nao-btn">
+                <button type="button" id="btn-nao">Não</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
