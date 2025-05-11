@@ -1,4 +1,4 @@
-.modal-overlay {
+.modal-overlay-desativar {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,15 +12,14 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    /* Certifique-se de que esta classe é usada apenas para o modal de sair */
 }
 
-.modal-overlay:not(.hidden) {
+.modal-overlay-desativar:not(.hidden) {
     opacity: 1;
     pointer-events: all;
 }
 
-.modal-box {
+.modal-box-desativar {
     font-family: "Inter", sans-serif;
     background: #FFFFFF;
     color: #000000;
@@ -37,7 +36,7 @@
     justify-content: center;
 }
 
-.modal-close {
+.modal-close-desativar {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -48,13 +47,13 @@
     cursor: pointer;
 }
 
-.modal-subject {
+.modal-subject-desativar {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.modal-title {
+.modal-title-desativar {
     text-align: center;
     font-size: 24px;
     font-weight: 400;
@@ -62,29 +61,30 @@
     color: #142747;
 }
 
-.modal-title span {
+.modal-title-desativar span {
     font-weight: 700;
 }
 
-.modal-form {
+.modal-form-desativar {
     width: 100%;
 }
 
-.modal-form form {
+.modal-form-desativar form {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 24px;
 }
 
-.sim-btn button, .nao-btn button {
+.sim-btn-desativar button,
+.nao-btn-desativar button {
     border: none;
     color: #F8F8F8;
     text-align: center;
     cursor: pointer;
 }
 
-.sim-btn button {
+.sim-btn-desativar button {
     background-color: #142747;
     border-radius: 8px;
     width: 120px;
@@ -93,36 +93,11 @@
     font-weight: 700;
 }
 
-.nao-btn button {
+.nao-btn-desativar button {
     background-color: #93A2B7;
     border-radius: 8px;
     width: 120px;
     height: 40px;
     font-size: 16px;
     font-weight: 700;
-}
-
-#modal-sair .modal-box {
-    font-family: "Inter", sans-serif;
-    background: #FFFFFF;
-    color: #000000;
-    padding: 24px;
-    border-radius: 24px;
-    width: 35%;
-    max-width: 1000px;
-    height: 35%;
-    position: relative;
-    animation: fadeIn 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#modal-sair .modal-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-    color: #142747;/* Certifique-se de que a cor está correta */
 }
