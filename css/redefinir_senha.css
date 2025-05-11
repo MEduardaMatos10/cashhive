@@ -100,10 +100,7 @@ body {
     border: none;
 }
 
-.logout:hover {
-    font-weight: bold;
-    cursor: pointer;
-}
+
 
 /* REDEFINIÇÃO DE SENHA - FORM */
 
