@@ -120,7 +120,29 @@ body {
     background-color: #f4f6f5;
     min-height: calc(100vh - 70px); /* Altura total menos a altura do cabeçalho */
 }
-
+.form-title {
+  background-color: #1f3a60;
+  color: #F8F8F8;
+  padding: 15px 20px;
+  border-radius: 10px 10px 0 0;
+  font-size: 24px;
+  font-weight: 600;
+  margin: -30px -40px 30px -40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ver-despesas{
+  background-color: #FFD36E;
+  color:  #1f3a60;
+  font-weight: 700;
+  padding: 10px 80px;
+  font-size: 14px;
+  border-radius: 8px;
+  border-style: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 /* Área principal */
 .input-receitas {
     font-family: "Inter", sans-serif;
@@ -131,34 +153,6 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
-/* Cabeçalho do formulário */
-.form-title h2 {
-    background-color: #1f3a60;
-    color: #F8F8F8;
-    padding: 15px 20px;
-    border-radius: 10px 10px 0 0;
-    font-size: 24px;
-    font-weight: 600;
-    margin: -30px -40px 30px -40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Botão Ver Receitas */
-.form-title h2::after {
-    content: "Ver Receitas";
-    background-color: #FFD36E;
-    color: #142747;
-    font-weight: 700;
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* Grid de campos */
 .input-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
