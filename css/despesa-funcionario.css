@@ -291,40 +291,83 @@ body {
   margin-bottom: 20px;
 }
 
-.filtros select {
-  width: 4000px;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  text-align: center;
+.filters{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+    font-size: 16px;
 }
 
-.tabela-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
+.filters input, select{
+    border: 2px solid #142747;
+    border-radius: 8px;
+    padding: 4px 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #F8F8F8;
+    width: 100%;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.nav-filter-category{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-thead th {
-  color: black;
-  text-align: left;
-  padding: 10px;
-  font-weight: 600;
+.main-tabela {
+    color: #000000;
+    font-size: 16px;
+    padding: 20px;
+    background-color: #F8F8F8;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 24px;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #e3ebf5;
+.tabela-receitas {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-tbody td {
-  padding: 10px;
+.tabela-receitas thead th {
+    background-color: #93A2B7;
+    text-align: center;
+    padding: 12px 8px;
+    font-weight: 700;
+}
+
+.tabela-receitas tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+}
+
+.tabela-receitas tbody tr:hover {
+    background-color: #dfe3e8;
+}
+
+.tabela-receitas tbody td {
+    padding: 10px 8px;
+    color: #000000;
+    text-align: center;
+}
+
+.tabela-receitas tbody td:last-child {
+    font-weight: 600;
+}
+
+.final-tabela{
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.intrucao-tabela{
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .acoes {

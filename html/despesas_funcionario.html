@@ -66,35 +66,85 @@
     </nav>
   </div>
 
-  <main class="main">
-    <!-- TABELA DE DESPESAS -->
-    <section class="tabela-despesas">
-      <div class="filtros">
-        <select><option>2025</option></select>
-        <select><option>Janeiro</option></select>
-        <select><option>Nome</option></select>
-        <select><option>Função</option></select>
-        <select><option>Salário</option></select>
-        <select><option>Idade</option></select>
-      </div>
+  <div class="nav-filter-category">
+        <div class="filters">
 
-      <div class="tabela-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Data Pagamento</th>
-              <th>Nome</th>
-              <th>Cargo</th>
-              <th>Salário</th>
-              <th>Idade</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Dados virão do banco futuramente -->
-          </tbody>
+            <select id="cliente-filter" name="cliente">
+                <option value="cliente">2025</option>
+                <option value="cliente1"></option>
+                <option value="cliente2"></option>
+                <option value="cliente3"></option>
+            </select>
+
+            <select id="pagamento-filter" name="pagamento">
+                <option value="pagamento">Janeiro</option>
+                <option value="pagamento1"></option>
+                <option value="pagamento2"></option>
+                <option value="pagamento"></option>
+            </select>
+
+            <select id="produto-filter" name="produto">
+                <option value="produto">Nome</option>
+                <option value="produto1"></option>
+                <option value="produto2"></option>
+                <option value="produto3"></option>
+            </select>
+
+            <select id="categoria-filter" name="categoria">
+                <option value="categoria">Função</option>
+                <option value="categoria1"></option>
+                <option value="categoria2"></option>
+                <option value="categoria3"></option>
+            </select>
+
+            <select id="quandtidade-filter" name="quantidade">
+                <option value="quantidade">Salário</option>
+                <option value="quantidade1"></option>
+                <option value="quantidade2"></option>
+                <option value="quantidade3"></option>
+            </select>
+
+            <select id="valor-unit-filter" name="valor-unit">
+                <option value="valor-unit">Idade</option>
+                <option value="valor-unit1"></option>
+                <option value="valor-unit2"></option>
+                <option value="valor-unit3"></option>
+            </select>
+        </div>
+    </div>
+
+  <main class="main-tabela">
+        <table class="tabela-receitas">
+            <thead>
+                <tr>
+                    <th>Data de pagamento</th>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Salário</th>
+                    <th>Idade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- As linhas da tabela serão preenchidas dinamicamente pelo backend -->
+                <tr>
+                    <td>01/01/2025</td>
+                    <td>Ramonzinho do Picolé</td>
+                    <td>Caixa</td>
+                    <td>R$ 2.400,00</td>
+                    <td>25</td>   
+                </tr>
+                <!-- Exemplo de linha -->
+                <tr>
+                    <td>02/01/2025</td>
+                    <td>Fabricio Baiano Carneiro</td>
+                    <td>Gerente</td>
+                    <td>R$ 4.400,00</td>
+                    <td>48</td>
+                </tr>
+                <!-- As outras linhas virão do banco de dados -->
+            </tbody>
         </table>
-      </div>
+    </main>
 
       <div class="acoes">
         <p>* Selecionar pra excluir</p>
