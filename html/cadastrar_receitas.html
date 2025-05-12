@@ -44,7 +44,7 @@
                             Financeiro
                         </summary>
                         <ul>
-                            <li><a href="#">Receitas</a></li>
+                            <li><a href="receitas_kibon.html">Receitas</a></li>
                             <li><a href="cadastrar_receitas.html">Cadastro de Receitas</a></li>
                             <li><a href="#">Despesas</a></li>
                             <li><a href="cadastrar_despesas_funcionario.html">Cadastro de Despesas</a></li>
@@ -105,8 +105,13 @@
                     </div>
 
                     <div class="input-box">
-                        <label for="nome-produto">Nome do Produto</label>
-                        <input type="text" id="nome-produto" name="nome-produto" required>
+                        <label for="nome-produto">Produto</label>
+                        <select id="nome-produto" name="nome-produto" required>
+                            <option value="">Selecione</option>
+                            <option value="alimentos">Kibon</option>
+                            <option value="bebidas">Nestlé</option>
+                            <option value="bebidas">Mareni</option>
+                        </select>
                     </div>
 
                     <div class="input-box">
@@ -118,9 +123,8 @@
                         <label for="categoria">Categoria</label>
                         <select id="categoria" name="categoria" required>
                             <option value="">Selecione</option>
-                            <option value="alimentos">Kibon</option>
-                            <option value="bebidas">Nestlé</option>
-                            <option value="outros">Mareni</option>
+                            <option value="alimentos">Picolé</option>
+                            <option value="bebidas">Sorvete</option>
                         </select>
                     </div>
 

@@ -54,6 +54,10 @@ body {
     gap: 10px;
 }
 
+.nav ul li.active {
+    background-color: #1d3557;
+}
+
 .nav li a {
     color: white;
     text-decoration: none;

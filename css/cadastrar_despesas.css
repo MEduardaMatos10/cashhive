@@ -250,9 +250,9 @@ body {
 }
 
 .nav-options ul li {
-    background-color: white;
-    border: 1px solid #000;
-    border-radius: 10px;
+    background-color: #F8F8F8;
+    border: 2px solid #142747;
+    border-radius: 8px;
     width: 100px;
     height: 36px;
     display: flex;
