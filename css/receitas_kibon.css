@@ -1,7 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #f4f6f5;
+    color: #000000;
 }
 
 .container-header {
@@ -172,9 +173,9 @@ body {
 }
 
 .nav-options ul li {
-    background-color: white;
-    border: 1px solid #000;
-    border-radius: 10px;
+    background-color: #F8F8F8;
+    border: 2px solid #142747;
+    border-radius: 8px;
     width: 100px;
     height: 36px;
     display: flex;
@@ -207,6 +208,23 @@ body {
 
 /* DIV DE FILTROS */
 
+.filters{
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    font-size: 16px;
+}
+
+.filters input, select{
+    border: 2px solid #142747;
+    border-radius: 8px;
+    padding: 4px 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #F8F8F8;
+}
+
 .nav-filter-category{
     margin-top: 40px;
     display: flex;
@@ -217,6 +235,8 @@ body {
 
 /* TABELA */
 .main-tabela {
+    color: #000000;
+    font-size: 16px;
     padding: 20px;
     background-color: #F8F8F8;
     border-radius: 12px;
@@ -232,11 +252,10 @@ body {
 }
 
 .tabela-receitas thead th {
-    background-color: #f1f3f5;
-    color: #333;
-    text-align: left;
+    background-color: #93A2B7;
+    text-align: center;
     padding: 12px 8px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .tabela-receitas tbody tr:nth-child(even) {
@@ -249,10 +268,32 @@ body {
 
 .tabela-receitas tbody td {
     padding: 10px 8px;
-    color: #555;
-    text-align: left;
+    color: #000000;
+    text-align: center;
 }
 
 .tabela-receitas tbody td:last-child {
     font-weight: 600;
+}
+
+.final-tabela{
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.intrucao-tabela{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.imprimir-btn button{
+    font-size: 16px;
+    font-weight: 700;
+    color: #F8F8F8;
+    background-color: #142747;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
 }
