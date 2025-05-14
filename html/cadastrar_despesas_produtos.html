@@ -71,15 +71,13 @@
         <!-- Modal de Sair -->
         <div class="modal-overlay hidden" id="modal-sair">
             <div class="modal-box">
-                <button class="modal-close close-modal close-modal-sair" type="button">
+                <button class="modal-close close-modal close-modal-sair" type="button" aria-label="Fechar modal">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
-
                 <div class="modal-subject">
                     <div class="modal-header">
                         <p class="modal-title">Deseja mesmo <span>sair</span> da conta?</p>
                     </div>
-
                     <div class="modal-form">
                         <form>
                             <div class="sim-btn">
@@ -87,6 +85,30 @@
                             </div>
                             <div class="nao-btn">
                                 <button type="button" id="btn-nao">Não</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Excluir -->
+        <div class="modal-overlay hidden" id="modal-excluir-receita">
+            <div class="modal-box">
+                <button class="modal-close fechar-modal-excluir" type="button" aria-label="Fechar modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="modal-subject">
+                    <div class="modal-header">
+                        <p class="modal-title">Deseja mesmo <span>excluir</span> essa despesa?</p>
+                    </div>
+                    <div class="modal-form">
+                        <form>
+                            <div class="sim-btn">
+                                <button type="button" id="confirmar-exclusao">Sim</button>
+                            </div>
+                            <div class="nao-btn">
+                                <button type="button" id="cancelar-exclusao">Não</button>
                             </div>
                         </form>
                     </div>
@@ -102,35 +124,34 @@
 
             <form>
                 <div class="input-group">
-
                     <div class="input-box">
                         <label for="data-compra">Data da Compra</label>
-                        <input type="date" id="data-compra" name="data-compra">
+                        <input type="date" id="data-compra" name="data-compra" required>
                     </div>
 
                     <div class="input-box">
                         <label for="validade">Validade</label>
-                        <input type="date" id="validade" name="validade">
+                        <input type="date" id="validade" name="validade" required>
                     </div>
 
                     <div class="input-box">
                         <label for="nome-produto">Nome do Produto</label>
-                        <input type="text" id="nome-produto" name="nome-produto">
+                        <input type="text" id="nome-produto" name="nome-produto" required>
                     </div>
 
                     <div class="input-box">
                         <label for="valor-unitario">Valor Unitário</label>
-                        <input type="number" id="valor-unitario" name="valor-unitario" step="0.01">
+                        <input type="number" id="valor-unitario" name="valor-unitario" step="0.01" required>
                     </div>
 
                     <div class="input-box">
                         <label for="quantidade">Quantidade</label>
-                        <input type="number" id="quantidade" name="quantidade">
+                        <input type="number" id="quantidade" name="quantidade" required>
                     </div>
 
                     <div class="input-box">
                         <label for="fornecedor">Fornecedor</label>
-                        <select id="fornecedor" name="fornecedor">
+                        <select id="fornecedor" name="fornecedor" required>
                             <option value="">Selecione</option>
                             <option value="Kibon">Kibon</option>
                             <option value="Nestlé">Nestlé</option>
@@ -140,19 +161,101 @@
 
                     <div class="input-box">
                         <label for="total">TOTAL</label>
-                        <input type="text" id="total" name="total">
+                        <input type="text" id="total" name="total" readonly>
                     </div>
-
                 </div>
 
                 <div class="criar-btn">
                     <button type="submit" class="btn-cadastrar">Cadastrar</button>
-                    <button type="button" class="btn-excluir">Excluir</button>
+                    <button type="button" class="btn-excluir abrir-modal-excluir" data-modal="modal-excluir-receita">Excluir</button>
                 </div>
             </form>
         </div>
     </main>
 </div>
+
+<script>
+    // Modal sair
+    document.querySelectorAll(".open-modal").forEach(button => {
+        button.addEventListener("click", () => {
+            const modalId = button.getAttribute("data-modal");
+            document.getElementById(modalId).classList.remove("hidden");
+        });
+    });
+
+    document.querySelectorAll(".close-modal, #btn-nao").forEach(button => {
+        button.addEventListener("click", () => {
+            button.closest(".modal-overlay").classList.add("hidden");
+        });
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal-overlay")) {
+            e.target.classList.add("hidden");
+        }
+    });
+
+    // Modal excluir com validação
+    const botaoAbrirModalExcluir = document.querySelector(".abrir-modal-excluir");
+    botaoAbrirModalExcluir.addEventListener("click", (e) => {
+        e.preventDefault();
+        const inputs = document.querySelectorAll(".input-group input, .input-group select");
+        let isFormValid = true;
+
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                isFormValid = false;
+            }
+        });
+
+        if (isFormValid) {
+            document.getElementById("modal-excluir-receita").classList.remove("hidden");
+        } else {
+            alert("Por favor, preencha todos os campos antes de excluir.");
+        }
+    });
+
+    // Validação do formulário no envio
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const inputs = document.querySelectorAll(".input-group input, .input-group select");
+        let isFormValid = true;
+
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                isFormValid = false;
+                input.style.borderColor = "red";
+            } else {
+                input.style.borderColor = "";
+            }
+        });
+
+        if (isFormValid) {
+            alert("Cadastro realizado com sucesso!");
+        } else {
+            alert("Por favor, preencha todos os campos antes de cadastrar.");
+        }
+    });
+
+    // Cálculo automático do total
+    const valorUnitario = document.getElementById("valor-unitario");
+    const quantidade = document.getElementById("quantidade");
+    const total = document.getElementById("total");
+
+    function calcularTotal() {
+        const valor = parseFloat(valorUnitario.value);
+        const qtd = parseInt(quantidade.value);
+        if (!isNaN(valor) && !isNaN(qtd)) {
+            total.value = (valor * qtd).toFixed(2);
+        } else {
+            total.value = "";
+        }
+    }
+
+    valorUnitario.addEventListener("input", calcularTotal);
+    quantidade.addEventListener("input", calcularTotal);
+</script>
 
 </body>
 </html>
