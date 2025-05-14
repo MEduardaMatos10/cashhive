@@ -1,8 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif; /* Standardized font */
-    font-size: 16px; /* Fixed font size */
+    font-family: 'Inter', sans-serif;
     background-color: #f4f6f5;
+    color: #000000;
 }
 
 .container-header {
@@ -17,14 +17,13 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 5x;
+    padding: 0 20px;
 }
 
 .logo img {
     height: 50px;
-    margin-left: 20px;
-
 }
+
 .user p {
     font-size: 14px;
     font-style: italic;
@@ -45,23 +44,23 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex; /* Garante que os itens fiquem em linha */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    gap: 5px; /* Reduzido o espaço entre os itens */
 }
 
 .nav li {
-    padding: 12px 20px;
+    padding: 10px 15px; /* Ajustado o padding interno */
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.nav ul li.active {
-    background-color: #1d3557;
+    gap: 8px; /* Espaço entre o ícone e o texto */
 }
 
 .nav li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
+    width: 100%; /* Garante que o link ocupe toda a largura do item */
 }
 
 .nav li:hover {
@@ -83,12 +82,13 @@ body {
     margin-top: 5px;
 }
 .submenu ul li {
-    padding: 5px 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 5px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
 .submenu ul li a {
     font-size: 14px;
     color: #dcdcdc;

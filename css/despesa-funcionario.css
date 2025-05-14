@@ -1,7 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #f4f6f5;
+    color: #000000;
 }
 
 .container-header {
@@ -80,13 +81,19 @@ body {
     padding-left: 30px;
     margin-top: 5px;
 }
+.submenu ul li {
+  padding: 5px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .submenu ul li a {
     font-size: 14px;
     color: #dcdcdc;
     text-decoration: none;
 }
-
 .submenu ul li a:hover {
     text-decoration: underline;
 }
@@ -226,13 +233,15 @@ body {
 
 /* Navegação secundária */
 .nav-category {
-    position: absolute;
+    position: fixed;
     top: 70px;
-    left: 18.5%;
-    width: 79%;
+    left: 250px; /* Ajustado para alinhar com o menu lateral */
+    right: 0;
     z-index: 999;
     padding: 16px 24px;
     background-color: #93A2B7;
+    width: calc(100% - 250px); /* Ajusta a largura para ocupar o restante da tela */
+    box-sizing: border-box;
 }
 
 .nav-options ul {
@@ -244,6 +253,7 @@ body {
     margin: 0;
     gap: 50px; /* Ajustado o gap para reduzir a distância entre os itens */
 }
+
 
 .main {
     margin-top: 10px; /* espaço para o cabeçalho + nav */

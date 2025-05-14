@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <img src="/img/profileicon.svg" alt="Perfil">
-                    <a href="profle.html">Perfil</a>
+                    <a href="profile.html">Perfil</a>
                 </li>
                 <li>
                     <details class="submenu">
@@ -44,7 +44,7 @@
                         <ul>
                             <li><a href="receitas_kibon.html">Receitas</a></li>
                             <li><a href="cadastrar_receitas.html">Cadastro de Receitas</a></li>
-                            <li><a href="#">Despesas</a></li>
+                            <li><a href="despesas_funcionario.html">Despesas</a></li>
                             <li><a href="cadastrar_despesas_funcionario.html">Cadastro de Despesas</a></li>
                         </ul>
                     </details>
@@ -60,9 +60,9 @@
     <div class="nav-category">
         <nav class="nav-options">
             <ul>
-                <li><a href="">Funcionário</a></li>
-                <li  class="active"><a href="">Produto</a></li>
-                <li><a href="">Variado</a></li>
+                <li><a href="despesas_funcionario.html">Funcionário</a></li>
+                <li  class="active"><a href="despesa_produto.html">Produto</a></li>
+                <li><a href="despesas_variadas.html">Variado</a></li>
             </ul>
         </nav>
     </div>
@@ -147,7 +147,7 @@
         </div>
 
         <div class="imprimir-btn">
-            <button type="button">Imprimir</button>
+            <button type="button"><i class="fa fa-print"></i> Imprimir</button>
         </div>
     </div>
 
@@ -168,7 +168,7 @@
                 <div class="modal-form">
                     <form>
                         <div class="sim-btn">
-                            <button type="button" id="btn-sim">Sim</button>
+                            <a href="login.html"><button type="button" id="btn-sim">Sim</button></a>
                         </div>
                         <div class="nao-btn">
                             <button type="button" id="btn-nao">Não</button>
@@ -179,6 +179,29 @@
         </div>
     </div>
 </div>
-
+<script>
+      // Abre o modal ao clicar no botão com data-modal
+        document.querySelectorAll(".open-modal").forEach(button => {
+            button.addEventListener("click", () => {
+                const modalId = button.getAttribute("data-modal");
+                document.getElementById(modalId).classList.remove("hidden");
+            });
+        });
+    
+        // Fecha o modal ao clicar no botão de fechar ou no botão "Não"
+        document.querySelectorAll(".close-modal, #btn-nao").forEach(button => {
+            button.addEventListener("click", () => {
+                button.closest(".modal-overlay").classList.add("hidden");
+            });
+        });
+    
+        // Fecha ao clicar fora da caixa
+        window.addEventListener("click", (e) => {
+            if (e.target.classList.contains("modal-overlay")) {
+                e.target.classList.add("hidden");
+            }
+        });
+</script>
+    
 </body>
 </html>

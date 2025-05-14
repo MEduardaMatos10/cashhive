@@ -44,23 +44,23 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    display: flex; /* Garante que os itens fiquem em linha */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    gap: 5px; /* Reduzido o espaço entre os itens */
 }
 
 .nav li {
-    padding: 10px 15px;
+    padding: 10px 15px; /* Ajustado o padding interno */
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 8px; /* Espaço entre o ícone e o texto */
 }
 
 .nav li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    width: 100%;
+    width: 100%; /* Garante que o link ocupe toda a largura do item */
 }
 
 .nav li:hover {
@@ -81,17 +81,22 @@ body {
     padding-left: 30px;
     margin-top: 5px;
 }
+.submenu ul li {
+  padding: 5px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .submenu ul li a {
     font-size: 14px;
     color: #dcdcdc;
     text-decoration: none;
 }
-
 .submenu ul li a:hover {
     text-decoration: underline;
 }
-
 .logout {
     position: fixed;
     bottom: 20px;
@@ -148,13 +153,15 @@ body {
 }
 
 .nav-category {
-    position: absolute;
+    position: fixed;
     top: 70px;
-    left: 18.5%;
-    width: 79%;
+    left: 250px; /* Ajustado para alinhar com o menu lateral */
+    right: 0;
     z-index: 999;
     padding: 16px 24px;
     background-color: #93A2B7;
+    width: calc(100% - 250px); /* Ajusta a largura para ocupar o restante da tela */
+    box-sizing: border-box;
 }
 
 .nav-options ul {
@@ -300,4 +307,20 @@ body {
     border: none;
     padding: 8px 16px;
     cursor: pointer;
+}
+.btn-imprimir {
+  background-color: #0e2442;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-imprimir:hover {
+  background-color: #14355f;
 }

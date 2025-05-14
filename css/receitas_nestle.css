@@ -81,13 +81,19 @@ body {
     padding-left: 30px;
     margin-top: 5px;
 }
+.submenu ul li {
+  padding: 5px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .submenu ul li a {
     font-size: 14px;
     color: #dcdcdc;
     text-decoration: none;
 }
-
 .submenu ul li a:hover {
     text-decoration: underline;
 }
@@ -149,13 +155,15 @@ body {
 
 /* Navegação secundária */
 .nav-category {
-    position: absolute;
+    position: fixed;
     top: 70px;
-    left: 18.5%;
-    width: 79%;
+    left: 250px; /* Ajustado para alinhar com o menu lateral */
+    right: 0;
     z-index: 999;
     padding: 16px 24px;
     background-color: #93A2B7;
+    width: calc(100% - 250px); /* Ajusta a largura para ocupar o restante da tela */
+    box-sizing: border-box;
 }
 
 .nav-options ul {
@@ -298,4 +306,18 @@ body {
     border: none;
     padding: 8px 16px;
     cursor: pointer;
+}
+
+.input-receitas {
+    font-family: "Inter", sans-serif;
+    max-width: 900px;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

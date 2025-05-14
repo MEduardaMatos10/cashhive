@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <img src="/img/profileicon.svg" alt="Perfil">
-                    <a href="profle.html">Perfil</a>
+                    <a href="profile.html">Perfil</a>
                 </li>
                 <li>
                     <details class="submenu">
@@ -44,7 +44,7 @@
                         <ul>
                             <li><a href="receitas_kibon.html">Receitas</a></li>
                             <li><a href="cadastrar_receitas.html">Cadastro de Receitas</a></li>
-                            <li><a href="#">Despesas</a></li>
+                            <li><a href="despesas_funcionario.html">Despesas</a></li>
                             <li><a href="cadastrar_despesas_funcionario.html">Cadastro de Despesas</a></li>
                         </ul>
                     </details>
@@ -174,7 +174,7 @@
         </div>
 
         <div class="imprimir-btn">
-            <button type="button">Imprimir</button>
+            <button type="button"><i class="fa fa-print"></i> Imprimir</button>
         </div>
     </div>
 
@@ -195,7 +195,7 @@
                 <div class="modal-form">
                     <form>
                         <div class="sim-btn">
-                            <button type="button" id="btn-sim">Sim</button>
+                            <a href="login.html"><button type="button" id="btn-sim">Sim</button></a>
                         </div>
                         <div class="nao-btn">
                             <button type="button" id="btn-nao">Não</button>
@@ -206,6 +206,25 @@
         </div>
     </div>
 </div>
+<script>
+     document.querySelectorAll(".open-modal").forEach(button => {
+        button.addEventListener("click", () => {
+            const modalId = button.getAttribute("data-modal");
+            document.getElementById(modalId).classList.remove("hidden");
+        });
+    });
 
+    document.querySelectorAll(".close-modal, #btn-nao").forEach(button => {
+        button.addEventListener("click", () => {
+            button.closest(".modal-overlay").classList.add("hidden");
+        });
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal-overlay")) {
+            e.target.classList.add("hidden");
+        }
+    });
+</script>
 </body>
 </html>
