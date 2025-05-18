@@ -330,7 +330,7 @@ body {
 .main-tabela {
     color: #000000;
     font-size: 16px;
-    padding: 20px;
+    padding: 20px 0px;
     background-color: #F8F8F8;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -380,19 +380,40 @@ body {
     font-weight: 700;
 }
 
-.acoes {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 700;
+.final-tabela {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 24px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.total-gasto-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    min-width: 220px; /* ajuste conforme necessário */
+}
+
+.total-gasto {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .acoes p {
-
   font-size: 14px;
   color: #333;
 }
+
 
 .btn-imprimir {
   background-color: #0e2442;
@@ -404,9 +425,12 @@ body {
   font-weight: 600;
   display: flex;
   align-items: center;
+  justify-content: center;
+  display: flex;
   gap: 8px;
 }
 
 .btn-imprimir:hover {
   background-color: #14355f;
 }
+

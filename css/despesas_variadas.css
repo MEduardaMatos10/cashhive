@@ -122,7 +122,7 @@ body {
 .main-container {
     margin-left: 250px;
     padding: 50px;
-    margin-top: 70px;
+    margin-top: 20px;
     background-color: #f4f6f5;
     min-height: calc(100vh - 70px);
 }
@@ -246,7 +246,7 @@ body {
     background-color: #F8F8F8;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 60px;
+    margin-top: 20px;
     max-width: 700px; /* NOVO: igual à largura dos filtros */
     margin-left: auto;
     margin-right: auto;
@@ -284,30 +284,52 @@ body {
     font-weight: 600;
 }
 
-.final-tabela {
+.final-tabela{
     margin-top: 24px;
     display: flex;
     justify-content: space-between;
-    max-width: 700px; /* alinha com a tabela */
+}
+
+.intrucao-tabela{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.final-tabela {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 24px;
+    max-width: 64%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.intrucao-tabela {
-    font-size: 16px;
-    font-weight: 700;
+.total-gasto-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    min-width: 220px; /* ajuste conforme necessário */
 }
 
-.imprimir-btn button {
-    font-size: 16px;
+.total-gasto {
     font-weight: 700;
-    color: #F8F8F8;
-    background-color: #142747;
-    border-radius: 8px;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
 }
+
+.botoes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.acoes p {
+  font-size: 14px;
+  color: #333;
+}
+
+
 .btn-imprimir {
   background-color: #0e2442;
   color: white;
@@ -318,8 +340,11 @@ body {
   font-weight: 600;
   display: flex;
   align-items: center;
+  justify-content: center;
+  display: flex;
   gap: 8px;
 }
+
 
 .btn-imprimir:hover {
   background-color: #14355f;
