@@ -187,17 +187,13 @@ body {
 }
 
 /* Campo readonly */
-.input-box input[readonly] {
-    background-color: #e9ecef;
-    cursor: not-allowed;
-}
-
 /* Botões alinhados à direita com gap */
 .criar-btn {
-    margin-top: 24px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 24px;
+  grid-column: 1/ -1; /* ← ESSENCIAL: faz os botões ocuparem as 2 colunas */
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-top: 24px;
 }
 
 /* Botão Cadastrar */
