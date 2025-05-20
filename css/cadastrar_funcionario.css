@@ -3,6 +3,8 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #f4f6f5;
     color: #000000;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .container-header {
@@ -178,6 +180,12 @@ body {
     margin-left: calc(250px + ((100% - 250px - 60%) / 2));
 }
 
+.card .filters{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .card table td, .card table th {
     text-align: center;
     vertical-align: middle;
@@ -204,6 +212,39 @@ body {
 .card table tr:nth-child(even) {
     background: #f6f8fa;
 }
+
+
+
+.reajuste-salarial{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    margin-top: 40px;
+    margin-bottom: 24px;
+}
+
+.reajuste-salarial input{
+    border: 2px solid #0a214c;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
+}
+
+.reajuste-salarial button{
+    border: 2px solid #0a214c;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
+    background-color: #0a214c;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+
+
 
 .actions button {
     margin: 0 4px;
