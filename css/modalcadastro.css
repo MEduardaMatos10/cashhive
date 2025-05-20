@@ -97,7 +97,9 @@
 .criar-btn {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
+    align-items: center;
+   
+    width: 100%;
 }
 
 .criar-btn button {
