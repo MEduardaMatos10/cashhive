@@ -71,12 +71,12 @@
     <div class="filters">
       <input type="date" id="data-filter" name="data">
 
-      <select id="cliente-filter" name="cliente">
-        <option value="cliente">Cliente</option>
-        <option value="cliente1">Cliente 1</option>
-        <option value="cliente2">Cliente 2</option>
-        <option value="cliente3">Cliente 3</option>
-      </select>
+      <select id="produto-filter" name="produto">
+                <option value="produto">Cliente</option>
+                <option value="produto1"></option>
+                <option value="produto2"></option>
+                <option value="produto3"></option>
+            </select>
 
       <select id="pagamento-filter" name="pagamento">
         <option value="pagamento">Pagamento</option>
@@ -98,6 +98,14 @@
         <option value="categoria2">Categoria 2</option>
         <option value="categoria3">Categoria 3</option>
       </select>
+
+      <select id="quandtidade-filter" name="quantidade">
+                <option value="quantidade">Sabor</option>
+                <option value="quantidade1">Morango</option>
+                <option value="quantidade2">Chocolate</option>
+                <option value="quantidade3">Maracujá</option>
+                <option value="quantidade3">Creme com passas</option>
+            </select>
 
       <select id="quandtidade-filter" name="quantidade">
         <option value="quantidade">Quantidade</option>
@@ -131,6 +139,7 @@
           <th>Pagamento</th>
           <th>Produto</th>
           <th>Categoria</th>
+          <th>Sabor</th>
           <th>Quantidade</th>
           <th>Valor Unitário</th>
           <th>Total</th>
@@ -139,20 +148,22 @@
       <tbody>
         <tr>
           <td>01/01/2025</td>
-          <td>Cliente 1</td>
+          <th>Jeon Jungkook</th>
           <td>Crédito</td>
           <td>Produto 1</td>
           <td>Categoria 1</td>
+          <th>Morango</th>
           <td>10</td>
           <td>R$ 20,00</td>
           <td>R$ 200,00</td>
         </tr>
         <tr>
           <td>02/01/2025</td>
-          <td>Cliente 2</td>
+          <th>Fabricio</th>
           <td>Débito</td>
           <td>Produto 2</td>
           <td>Categoria 2</td>
+          <th>Creme com passas</th>
           <td>5</td>
           <td>R$ 50,00</td>
           <td>R$ 250,00</td>

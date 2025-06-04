@@ -83,15 +83,17 @@
                 <input name="telefone" type="text" placeholder="Número">
                 <input name="rua" type="text" placeholder="Cidade">
                 <input name="ddd" type="text" placeholder="Bairro">
+
                 <select  id="cargo" name="cargo">
                     <option value="cargo">Cargo</option>
                     <option value="gerente">Gerente</option>
                     <option value="vendedor">Vendedor</option>
                     <option value="caixa">Caixa</option>
                 </select>
-                <input name="data" type="email" placeholder="Data de admissão">
-                 <input name="ddd" type="text" placeholder="Contato">
-                  <input name="ddd" type="text" placeholder="Salário">
+
+                <input type="date"placeholder="data de admissão">
+                <input name="ddd" type="text" placeholder="Contato">
+                <input name="ddd" type="text" placeholder="Salário">
                 <button type="submit" class="btn">Salvar</button>
                 <!-- ...existing code... -->
             </form>
@@ -137,7 +139,7 @@
                         <td class="actions">
                             <button class="open-modal" data-modal="modal-cadastro">Editar</button>
                             <button class="btn-desativar-conta js-open-modal-desativar"
-                                data-modal="modal-1">Desativar</button>
+                                data-modal="modal-1">Excluir</button>
                         </td>
                     </tr>
                     <tr>
@@ -147,7 +149,7 @@
                         <td class="actions">
                             <button class="open-modal" data-modal="modal-cadastro">Editar</button>
                             <button class="btn-desativar-conta js-open-modal-desativar"
-                                data-modal="modal-1">Desativar</button>
+                                data-modal="modal-1">Excluir</button>
                         </td>
                     </tr>
                 </tbody>
@@ -238,6 +240,11 @@
             </div>
 
             <div class="input-box">
+                <label for="data de admissão">Data de admissão</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+
+            <div class="input-box">
                 <label for="cargo">Cargo</label>
                 <select id="cargo" name="cargo" required>
                     <option value="">Selecione o cargo</option>
@@ -247,10 +254,6 @@
                 </select>
             </div>
 
-             <div class="input-box">
-                <label for="bairro">Data de admissão</label>
-                <input type="date" id="data" name="data" required>
-            </div>
 
             <div class="input-box">
                 <label for="bairro">Contato</label>
