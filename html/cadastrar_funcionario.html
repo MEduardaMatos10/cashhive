@@ -110,25 +110,31 @@
         <div class="card">
 
             <div class="nav-filter-category">
-            <div class="filters">
-    
-
-                <select id="produto-filter" name="produto">
-                    <option value="produto">Nome </option>
-                    <option value="produto1"></option>
-                    <option value="produto2"></option>
-                    <option value="produto3"></option>
-                </select>
-
-                <select id="categoria-filter" name="categoria">
-                    <option value="categoria">Função</option>
-                    <option value="categoria1"></option>
-                    <option value="categoria2"></option>
-                    <option value="categoria3"></option>
-                </select>
-            </div>
-        </div>
+                <div class="filters">
         
+
+                    <select id="produto-filter" name="produto">
+                        <option value="produto">Nome </option>
+                        <option value="produto1"></option>
+                        <option value="produto2"></option>
+                        <option value="produto3"></option>
+                    </select>
+
+                    <select id="categoria-filter" name="categoria">
+                        <option value="categoria">Função</option>
+                        <option value="categoria1"></option>
+                        <option value="categoria2"></option>
+                        <option value="categoria3"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="reajuste-salarial">
+                <label for="percentualReajuste">Reajuste Salarial (%):</label>
+                <input type="number" id="percentualReajuste" step="0.01" placeholder="Ex: 5">
+                <button id="aplicarReajuste">Aplicar Reajuste</button>
+            </div>
+
             <table>
               
                 <tbody>
@@ -154,8 +160,14 @@
                     </tr>
                 </tbody>
             </table>
+
         </div>
-        </main>
+
+
+        
+            
+    </div>
+
 
         <!-- Modal de Sair -->
         <div class="modal-overlay hidden" id="modal-sair">
@@ -580,6 +592,45 @@
                 document.getElementById("modal-cadastro").classList.add("hidden");
             });
         </script>
+
+
+
+
+
+        <!-- CRIPT REAJUSTE SALARIAL -->
+        
+        <script>
+            document.getElementById('aplicarReajuste').addEventListener('click', async () => {
+                const percentual = parseFloat(document.getElementById('percentualReajuste').value);
+
+                if (isNaN(percentual)) {
+                    alert('Digite um valor válido para o reajuste.');
+                    return;
+                }
+
+                const confirmacao = confirm(`Deseja aplicar um reajuste de ${percentual}% a todos os funcionários?`);
+                if (!confirmacao) return;
+
+                try {
+                    const response = await fetch('/api/reajustar_salarios', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ percentual })
+                    });
+
+                    if (response.ok) {
+                        alert('Reajuste aplicado com sucesso!');
+                        location.reload(); // Recarrega a lista atualizada
+                    } else {
+                        alert('Erro ao aplicar o reajuste.');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Erro inesperado ao aplicar o reajuste.');
+                }
+            });
+        </script>
+
 
 </body>
 
