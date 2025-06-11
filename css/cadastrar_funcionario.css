@@ -273,8 +273,8 @@ body {
 
 input[type="text"], input[type="email"], input[type="date"], select {
     padding: 10px;
-    border: 1px solid #0a214c;
-    border-radius: 5px;
+    border: 2px solid #0a214c;
+    border-radius: 6px;
     width: 100%;
     box-sizing: border-box;
     font-size: 14px;
@@ -388,11 +388,29 @@ table th, table td {
     width: 100%;
 }
 
-.nav-filter-category{
-   
+.barra-pesquisa{
+    display: flex;
+}
+
+.barra-pesquisa input{
     display: flex;
     justify-content:center;
     align-items: center;
+    padding: 10px;
+    border: 2px solid #1f3a60;
+    border-radius: 6px 0px 0px 6px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.pesquisar-button{
+    border: 2px solid #0a214c;
+    border-radius: 0px 6px 6px 0px;
+    padding: 4px 8px;
+    font-size: 16px;
+    background-color: #0a214c;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 #cargo{
